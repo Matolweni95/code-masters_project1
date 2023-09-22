@@ -1,0 +1,52 @@
+.aps {
+    height: auto;
+    background-color: #F5F5F5;
+}
+
+.aps-container {
+    margin-top: 160px;
+}
+
+.aps-heading {
+    gap: 15px;
+}
+
+.aps-header {
+    font-size: 32px;
+    color: #743943;
+}
+
+.aps-line {
+    background-color: #743943;
+    width: 68px;
+    height: 6px;
+}
+
+.aps-desc {
+    margin-top: 36px;
+}
+
+.aps-summary {
+    max-width: 465px;
+    text-align: center;
+}
+
+select, .aps-percent {
+    border: none;
+}
+
+th {
+    background-color: #743943;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+.calculator {
+    gap: 5px;
+}
+
+.calculate-btn {
+    margin-top: 52px;
+}

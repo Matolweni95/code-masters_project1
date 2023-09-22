@@ -1,0 +1,48 @@
+.hero {
+   height: 100vh; 
+}
+
+.hero-container {
+    background-image: url(../images/IMG_8375.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(116, 57, 67, 0.50);
+}
+
+.hero__image {
+    width: 100%;
+}
+
+.hero-content {
+    height: calc(100vh - 92px);
+}
+
+.hero-content__text {
+    width: 587px;
+    gap: 40px;
+}
+
+.hero-heading {
+    font-size: 48px;
+    color: white;
+    position: relative;
+}
+
+.hero-subheading{
+    color: white;
+    font-size: 16px;
+    position: relative;
+    width: 473px;
+    text-align: center;
+}
+

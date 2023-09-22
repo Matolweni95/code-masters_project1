@@ -1,0 +1,56 @@
+.about {
+    margin-top: 66px;
+}
+
+.about-container {
+    gap: 66px;
+}
+
+.about-heading {
+    gap: 29px;
+}
+
+.about-header {
+    font-size: 32px;
+}
+
+.about-line {
+    width: 68px;
+    height: 6px;
+    background-color: #743943;
+}
+
+.about-summary {
+    max-width: 912px;
+    text-align: center;
+}
+
+.aim {
+    margin-top: 87px;
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+.aim h3, .aim-paragraph, .mission-paragraph{
+    color: white;
+}
+
+.aim-container {
+    width: 587px;
+}
+
+.aim-image {
+    width: 100%;
+}
+
+.mission-text, .vision-text {
+    width: 587px;
+    gap: 30px;
+    background: var(--secondary-2, #273A5C);
+}
+
+.mission-paragraph, .aim-paragraph {
+    width: 450px;
+    text-align: justify;
+    height: auto;
+}

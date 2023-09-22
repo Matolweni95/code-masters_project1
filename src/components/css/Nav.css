@@ -1,0 +1,23 @@
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-nav .nav-link {
+  color: white; 
+}
+
+.navbar-brand  {
+  color: white !important;
+}
+
+.navbar {
+  background-color: transparent !important;
+  padding: 0px 46px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}

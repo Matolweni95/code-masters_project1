@@ -1,0 +1,28 @@
+.topnav {
+    background-color: #743943;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    gap: 48px;
+    padding: 11px 0px;
+    height: 100%;
+    align-items: center;
+}
+
+.support-btn {
+    background-color: #CFD7DE;
+    display: flex;
+    padding: 6px 14px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border: none;
+}
+
+.topnav__text {
+    font-size: 12px;
+    color: white;
+    margin-bottom: 0px !important;
+}
