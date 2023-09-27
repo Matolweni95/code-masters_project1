@@ -4,7 +4,7 @@ import About from '../components/Js/About';
 import Blog from '../components/Js/Blog';
 import Gallery from '../components/Js/Gallery';
 import Aps from '../components/Js/Aps';
-
+import Footer from '../components/Js/Footer';
 
 const Landing = () => {
   return (
@@ -15,6 +15,7 @@ const Landing = () => {
         <Blog />
         <Gallery />
         <Aps />
+        <Footer/> 
       </div>
     </>
   )
