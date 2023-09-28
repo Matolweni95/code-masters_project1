@@ -6,8 +6,89 @@
 body {
   @apply leading-[normal] m-0;
 }
+
 *,
 ::before,
 ::after {
   border-width: 0;
+
+
+/* Edit.css */
+
+/* Style for the container */
+.contain {
+  padding: 5px;
+  margin: 100px 100px 200px 8px;
+  background-color:white;
+  align-items: left;
+  display: flex;
+  top:10px;
+  position: absolute;
 }
+
+/* Style for the input fields */
+.input {
+  width: 890px; /* Make the input field span the entire width of its container */
+  padding: 10px 20px;
+}
+
+/* Style for the submit button */
+.custom-button {
+  background-color: maroon;
+  margin-top: 30px;
+  color: #fff;
+  padding: 10px 20px;
+  
+}
+
+/* Style for the Link */
+.name {
+ width: 199px;
+height: 44px;
+top: 133px;
+left: 363px;
+font-family: Inter;
+font-size: 36px;
+font-weight: 700;
+line-height: 44px;
+letter-spacing: 0em;
+text-align: left;
+columns: black ;
+
+}
+
+/* Style for the form elements */
+
+textarea {
+  width: 890px;
+  height: 316px;
+  left:358px;
+  top: 405px;
+  padding: 20px;
+  background-color: #d9d9d9; /* Change background color */
+ 
+}
+
+#inputField {
+  width: 890px;
+  height: 55px;
+  top: 295px;
+  left: 358px;
+  background-color: #d9d9d9;
+  border: none; /* Add a border to the input field */
+  font-size: 16px; /* Set the font size */
+  
+}
+
+/* Style for the tag input field */
+#tagField {
+  width: 890px;
+  height: 55px;
+  top: 794;
+  left: 358px;
+  border:none; /* Add a border to the input field */
+  background-color: #d9d9d9;
+
+}
+
+
