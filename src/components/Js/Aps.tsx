@@ -154,13 +154,13 @@ const Aps: React.FC = () => {
       </div>
       
       <div className="calculator d-flex flex-wrap">
-        <div className="main-calculator d-flex justify-content-center flex-column align-items-center w-50">
+        <div className="main-calculator d-flex justify-content-center flex-column align-items-center ">
           <table className="score">
             <thead>
               <tr>
                 <th>Subject</th>
-                <th>Percentage</th>
-                <th>Level</th>
+                <th className="col2">Percentage</th>
+                {/* <th>Level</th> */}
               </tr>
             </thead>
             <tbody>
@@ -190,14 +190,14 @@ const Aps: React.FC = () => {
                       }}
                     />
                   </td>
-                  <td>{grade.level}</td>
+                  {/* <td>{grade.level}</td> */}
                 </tr>
               ))}
             </tbody>
           </table>
           <button className="calculate-btn" onClick={calculateTotalLevels}>CALCULATE</button>
         </div>
-        <div className="result d-flex flex-column align-items-center w-50"> 
+        <div className="result d-flex flex-column align-items-center"> 
           <h4>RESULT</h4>
           <p>{getApsMessage()}</p>
         </div>

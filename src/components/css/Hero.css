@@ -27,22 +27,22 @@
     height: calc(100vh - 92px);
 }
 
-.hero-content__text {
+/* .hero-content__text {
     width: 587px;
     gap: 40px;
-}
+} */
 
 .hero-heading {
-    font-size: 48px;
+    font-size: 3.5vw;
     color: white;
     position: relative;
+    text-align: center;
 }
 
 .hero-subheading{
     color: white;
     font-size: 16px;
     position: relative;
-    width: 473px;
     text-align: center;
 }
 

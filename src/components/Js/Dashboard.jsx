@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/Dashboard.css'
 import avatar from '../images/IMG_8375.JPG';
 
-const Dashboard = () => {
+const Dashboard = ({ children }) => {
   const [isSidebarActive, setSidebarActive] = useState(true);
 
   const toggleSidebar = () => {
@@ -105,7 +105,7 @@ const Dashboard = () => {
             </div>
           </div>
         </nav>
-        <h1>hello</h1>
+        {children}
       </div>
     </div>
   );

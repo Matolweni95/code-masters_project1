@@ -25,9 +25,11 @@ const Gallery = () => {
           <div className='gallery-line'></div>
         </div>
 
-        <div className="image-container d-flex justify-content-center flex-wrap">
+        <div className="image-container  d-flex justify-content-center flex-wrap">
         {imagePaths.map((imagePath, index) => (
-          <img className='gallery-image' key={index} src={imagePath} alt={`Image ${index}`} />
+          <div className='image-cont col-lg-3' key={index}>
+            <img className='gallery-image' src={imagePath} alt={`Image ${index}`} />
+          </div>
         ))}
       </div>
       </div>

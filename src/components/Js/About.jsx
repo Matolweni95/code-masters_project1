@@ -21,11 +21,11 @@
           </div>
         </div>
 
-        <div className='aim d-flex flex-wrap justify-content-center'>
-          <div className='aim-container'>
+        <div className='aim d-flex flex-wrap justify-content-center '>
+          <div className='aim-container col-lg-5'>
             <img className='aim-image' src={vision}/>
           </div>
-          <div className='mission-text d-flex flex-column justify-content-center align-items-center'>
+          <div className='mission-text col-lg-5 d-flex flex-column justify-content-center align-items-center'>
             <h3>OUR MISSION</h3>
             <p className='aim-paragraph'>
             Lorem ipsum dolor sit amet consectetur. Sodales vestibulum integer nisl sodales id. Tellus
@@ -37,7 +37,7 @@
           </div>
        
         
-        <div className='vision-text  d-flex flex-column justify-content-center align-items-center'>
+        <div className='vision-text col-lg-5  d-flex flex-column justify-content-center align-items-center'>
           <h3>OUR MISSION</h3>
               <p className='mission-paragraph'>
                 Lorem ipsum dolor sit amet consectetur. Sodales vestibulum integer nisl sodales id. Tellus
@@ -47,7 +47,7 @@
                   pellentesque proin mattis. Magna pulvinar non praesent at mattis senectus praesent tellus.
               </p>
         </div>
-        <div className='aim-container'>
+        <div className='aim-container col-lg-5'>
             <img className='aim-image' src={vision}/>
           </div>
         </div>

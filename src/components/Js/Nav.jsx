@@ -12,15 +12,16 @@ const Navi = () => {
 
       <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
         <Nav className='ml-auto'>
-          <Nav.Link href="#features">Home</Nav.Link>
-          <Nav.Link href="#features">About Us</Nav.Link>
-          <Nav.Link href="#features">Blog</Nav.Link>
-          <Nav.Link href="#features">Gallery</Nav.Link>
-          <Nav.Link href="#features">Contact Us</Nav.Link>
-          <Nav.Link href="#features">APS Calculator</Nav.Link>
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#about">About Us</Nav.Link>
+          <Nav.Link href="#blog">Blog</Nav.Link>
+          <Nav.Link href="#gallery">Gallery</Nav.Link>
+          <Nav.Link href="#contact">Contact Us</Nav.Link>
+          <Nav.Link href="#aps">APS Calculator</Nav.Link>
+          <Nav.Link href="#support" className='support-link'>Support Us</Nav.Link>
         </Nav>
       </Navbar.Collapse>
-    </Container>
+    </Container> 
   </Navbar>
   );
 }

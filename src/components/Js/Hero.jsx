@@ -12,7 +12,7 @@ const Hero = () => {
       <Navi />
       <div className='hero-content d-flex justify-content-center align-items-center'>
         <div className='hero-content__text d-flex flex-column justify-content-center align-items-center'>
-        <h1 className='hero-heading'>WELCOME TO SEBITJA SECONDARY SCHOOL</h1>
+        <h1 className='hero-heading col-sm-12 col-md-6 col-lg-7'>WELCOME TO SEBITJA SECONDARY SCHOOL</h1>
         <p className='hero-subheading'>
           Lorem ipsum dolor sit amet consectetur. Lectus scelerisque neque turpis vitae turpis sodales sed lectus.
         </p>

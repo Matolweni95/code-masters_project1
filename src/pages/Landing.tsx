@@ -14,7 +14,7 @@ const Landing = () => {
         <About />
         <Blog />
         <Gallery />
-        <Aps />
+        {/* <Aps /> */}
       </div>
     </>
   )

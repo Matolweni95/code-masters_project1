@@ -39,12 +39,18 @@ th {
     background-color: #743943;
 }
 
+table {
+    width: 150px;
+}
+
 th, td {
     border: 1px solid black;
 }
 
 .calculator {
     gap: 5px;
+    align-items: center;
+    justify-content: center;
 }
 
 .calculate-btn {

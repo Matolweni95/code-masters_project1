@@ -95,7 +95,7 @@ code {
 }
 
 /* Style for the submit button */
-button {
+/* button {
   background-color: maroon;
   margin-top: 30px;
   color: #fff;
@@ -107,7 +107,7 @@ button {
 button:hover {
   background-color: maroon;
   text-align:left;
-}
+} */
 
 /* Edit.css */
 

@@ -33,24 +33,19 @@
 
 .aim h3, .aim-paragraph, .mission-paragraph{
     color: white;
+    padding: 15px;
 }
 
-.aim-container {
-    width: 587px;
-}
 
 .aim-image {
     width: 100%;
 }
 
 .mission-text, .vision-text {
-    width: 587px;
-    gap: 30px;
     background: var(--secondary-2, #273A5C);
 }
 
 .mission-paragraph, .aim-paragraph {
-    width: 450px;
     text-align: justify;
     height: auto;
 }

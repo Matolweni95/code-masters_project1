@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-    <Dashboard  />
+    {/* <Dashboard children={'heeko'}   /> */}
+    <Landing />
     </>
   );
   
