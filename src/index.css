@@ -1,113 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply leading-[normal] m-0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}/* Style for the Post Title */
-.post-title {
-  width: 250px;
-  height: 44px;
-  top: 133px;
-  left: 363px;
-  font: inter;
-  font-weight: 700;
-  line-height: 43.57px;
-  line-height: 1.5;
-  font-family: Inter;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 44px;
-  text-align: left;
+*,
+::before,
+::after {
+  border-width: 0;
 
-  margin-bottom: 20px; /* Add margin to create space below the title */
-}
-.add-image-button {
-  margin: right 10px;
-}
-
-/* Style for the input fields */
-/* Define styles for the form-group class */
-.form-group {
-  margin: 10px; /* Add spacing around the form group */
-}
-
-/* Define styles for the input-field class */
-.input-field {
-  width: 890px;
-  height: 55px;
-  top: 295px;
-  left: 358px;
-  background-color: #d9d9d9;
-    border: none; /* Add a border to the input field */
-    font-size: 16px; /* Set the font size */
-    text-align:left;
-    display: flex;
-    margin-bottom: 20px;
-}
-
-/* Style the placeholder text inside the input field */
-.input-field.text-field:placeholder {
-  background-color: #d9d9d9;
-  padding: 100px;
-  width: 150%;
-   
-}
-
-/* Style the input field when it's focused */
-.input-field:focus {
-  border-color: #d9d9d9; /* Change the border color when focused */
-  outline: none; /* Remove the default focus outline */
-  background-color: #d9d9d9;
-}
-
-/* Style for the text area */
-.text-field {
-  width: 890px;
-  height: 316px;
-  top: 405px;
-  left:358px;
-  padding: 20px;
-  background-color: #d9d9d9; /* Change background color */
-  display: flex;
-  margin-bottom: 20px;
-}
-
-/* Style for the image preview */
-.image-preview {
-  width: 150px; /* Set a maximum width for the image preview container */
-  height: 150px; /* Set a maximum height for the image preview container */
-  margin-bottom: 20px;
-  overflow: hidden;
-  margin-top: -50px; /* Hide any overflowing parts of the image */
-}
-
-.image-preview img {
-  width: 100%; /* Make the image fit within the container */
-  height: 100%; /* Make the image fit within the container */
-  border-radius: 100%;
-}
-
-/* Style for the submit button */
-button {
-  background-color: maroon;
-  margin-top: 30px;
-  color: #fff;
-  padding: 10px 20px;
-  text-align:left;
-  display: flex;
-}
-
-button:hover {
-  background-color: maroon;
-  text-align:left;
-}
 
 /* Edit.css */
 
