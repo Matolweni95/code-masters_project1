@@ -1,6 +1,6 @@
 import React from 'react';
-import Dashboard from './components/Js/Dashboard';
-import './App.css'
+import Footer from './components/Js/Footer';
+import './index.css'
 import Landing from './pages/Landing';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,8 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-    {/* <Dashboard children={'heeko'}   /> */}
-    <Landing />
+      <Landing />
     </>
   );
   
