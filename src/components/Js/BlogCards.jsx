@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import "../css/BlogCards.css";
-import imageOne from "../Images/imageOne.png";
+import "../css/BlogStyle.css";
+import imageOne from "../images/imageOne.png";
 
 const BlogCards = () => {
   const containerRef = useRef(null);
@@ -137,7 +137,7 @@ const BlogCards = () => {
   return (
     //displayed cards below
     <div>
-      <div className="container" ref={containerRef}>
+      <div className="containers" ref={containerRef}>
         <div className="grid-container">
           {currentPageData.map((article) => (
             <div key={article.id} className="grid-item">

@@ -1,10 +1,14 @@
 import React from 'react';
 import '../css/Blog.css';
 import placeholder from '../images/IMG_8206.JPG';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
+  
+  const navigate = useNavigate();
+
   return (
-    <div className='blog'>
+    <section className='blog' id='blog'>
       <div className='blog-container d-flex flex-column'>
         <div className='blog-heading d-flex justify-content-center flex-column align-items-center'>
           <h1 className='blog-header'>Blog</h1>
@@ -66,10 +70,10 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <button className='more'>READ MORE</button>
+          <button className='more' onClick={()=>navigate('/blog')}>READ MORE</button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

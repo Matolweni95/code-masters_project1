@@ -1,10 +1,11 @@
 .aps {
     height: auto;
     background-color: #F5F5F5;
+    padding-bottom: 100px;
 }
 
 .aps-container {
-    margin-top: 160px;
+    margin-top: 50px;
 }
 
 .aps-heading {
@@ -27,32 +28,26 @@
 }
 
 .aps-summary {
-    max-width: 465px;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 select, .aps-percent {
-    border: none;
+    border: none !important;
 }
 
 th {
-    background-color: #743943;
+    background-color: white !important;
+    background-color: #743943 !important;
 }
 
-table {
-    width: 150px;
-}
 
 th, td {
-    border: 1px solid black;
-}
-
-.calculator {
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid black  !important;
 }
 
 .calculate-btn {
     margin-top: 52px;
+    color: white !important;
+    background-color: #743943 !important;
 }

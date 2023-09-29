@@ -5,6 +5,10 @@
     padding-top: 42px;
 }
 
+.card-section__conatiner {
+    gap: 20px;
+}
+
 .blog-line {
     background-color: #743943;
     width: 68px;
@@ -71,7 +75,8 @@
     float: right;
     margin-right: 52px;
     background-color: #743943;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 10px 14px;
     border: 1px solid black;
     color: white;
     margin-top: 60px;

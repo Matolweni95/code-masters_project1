@@ -18,7 +18,7 @@ const imagePaths = [
 
 const Gallery = () => {
   return (
-    <div className='gallery'>
+    <section className='gallery'>
       <div className='gallery-container'>
         <div className='gallery-heading d-flex align-items-center justify-content-center flex-column'>
           <h1 className='gallery-header'>Gallery</h1>
@@ -33,7 +33,7 @@ const Gallery = () => {
         ))}
       </div>
       </div>
-    </div>
+    </section>
   )
 }
 

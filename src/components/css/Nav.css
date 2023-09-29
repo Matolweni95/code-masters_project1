@@ -22,6 +22,15 @@
   padding-bottom: 12px !important;
 }
 
+.nav-link:focus, .nav-link:hover {
+  color: white !important;
+}
+
+.active {
+  text-decoration: underline !important;
+  color: white !important;
+}
+
 @media screen and (min-width: 600px) {
   .support-link {
       display: none !important;

@@ -27,11 +27,6 @@
     height: calc(100vh - 92px);
 }
 
-/* .hero-content__text {
-    width: 587px;
-    gap: 40px;
-} */
-
 .hero-heading {
     font-size: 3.5vw;
     color: white;

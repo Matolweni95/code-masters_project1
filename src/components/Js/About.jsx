@@ -5,7 +5,7 @@
   const About = () => {
     return (
       
-      <section className='about'>
+      <section className='about' id='about'>
         <div className='about-container d-flex flex-column'>
           <div className='about-heading d-flex flex-column align-items-center justify-content-center'>
             <h1 className='about-header'>About</h1>

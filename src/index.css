@@ -11,4 +11,5 @@ body {
 ::before,
 ::after {
   border-width: 0;
+  scroll-behavior: smooth;
 }

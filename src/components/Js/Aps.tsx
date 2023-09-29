@@ -135,74 +135,76 @@ const Aps: React.FC = () => {
   ];
 
   return (
-    <section className="aps d-flex flex-column align-items-center justify-content-center">
-    <div className="aps-container ">
-      <div className="aps-heading d-flex flex-column align-items-center justify-content-center">
-        <h1 className="aps-header">APS SCORE CALCULATOR</h1>
-        <div className="aps-line"></div>
-      </div>
+    <section className="aps d-flex flex-column align-items-center justify-content-center" id="aps">
+      <div className="container aps-container">
+        <div className="aps-heading d-flex flex-column align-items-center justify-content-center">
+          <h1 className="aps-header">APS SCORE CALCULATOR</h1>
+          <div className="aps-line"></div>
+        </div>
 
-      <div className="aps-desc">
-      <div className="aps-summary">
-        <p>
-          In case you didn’t know, APS stands for Admission Point Score. In
-          South Africa, universities and other tertiary institutions will often
-          ask for this score in their application process. It is sometimes used
-          as an entry requirement on application forms.
-        </p>
-      </div>
-      </div>
-      
-      <div className="calculator d-flex flex-wrap">
-        <div className="main-calculator d-flex justify-content-center flex-column align-items-center ">
-          <table className="score">
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th className="col2">Percentage</th>
-                {/* <th>Level</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {grades.map((grade, index) => (
-                <tr key={index}>
-                  <td>
-                    <select
-                      value={grade.subject}
-                      onChange={(e) => handleSubjectChange(e, index)}
-                    >
-                      <option value="">Select a Subject</option>
-                      {subjects.map((subject) => (
-                        <option key={subject} value={subject}>
-                          {subject}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-                  <td>
-                    <input
-                    className="aps-percent"
-                      type="number"
-                      value={grade.percentage}
-                      onChange={(e) => handleInputChange(e, index, "percentage")}
-                      onWheel={(e) => {
-                        e.preventDefault();
-                      }}
-                    />
-                  </td>
-                  {/* <td>{grade.level}</td> */}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <button className="calculate-btn" onClick={calculateTotalLevels}>CALCULATE</button>
+        <div className="aps-desc d-flex justify-content-center">
+          <div className="aps-summary col-lg-9">
+            <p>
+              ipsum Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium natus 
+              tempore provident magni minus commodi sit incidunt quo, quaerat error! Quod culpa 
+              saepe animi rem neque? Aliquam, exercitationem. Voluptatibus, magni!
+            </p>
+          </div>
         </div>
-        <div className="result d-flex flex-column align-items-center"> 
-          <h4>RESULT</h4>
-          <p>{getApsMessage()}</p>
+
+        <div className="calculator d-flex flex-wrap align-items-center justify-content-center ">
+          <div className="main-calculator d-flex justify-content-center flex-column align-items-center ">
+            <div className="table-responsive">
+              <table className="table score">
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Percentage</th>
+                    <th>Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {grades.map((grade, index) => (
+                    <tr key={index}>
+                      <td>
+                        <select
+                          value={grade.subject}
+                          onChange={(e) => handleSubjectChange(e, index)}
+                          className="form-control"
+                        >
+                          <option value="">Select a Subject</option>
+                          {subjects.map((subject) => (
+                            <option key={subject} value={subject}>
+                              {subject}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td>
+                        <input
+                          className="form-control aps-percent"
+                          type="number"
+                          value={grade.percentage}
+                          onChange={(e) => handleInputChange(e, index, "percentage")}
+                          onWheel={(e) => {
+                            e.preventDefault();
+                          }}
+                        />
+                      </td>
+                      <td>{grade.level}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <button className="btn calculate-btn" onClick={calculateTotalLevels}>CALCULATE</button>
+          </div>
+          <div className="result d-flex flex-column align-items-center">
+            <h4>RESULT</h4>
+            <p>{getApsMessage()}</p>
+          </div>
         </div>
       </div>
-    </div>
     </section>
   );
 };
