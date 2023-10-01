@@ -1,11 +1,40 @@
-  import React from 'react';
+  import React, {useState, useEffect} from 'react';
   import '../css/About.css';
+  import db from '../Config/Firebase-config';
   import vision from '../images/IMG_8375.JPG';
+  import { collection, getDocs } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 
   const About = () => {
+    const [documents, setDocuments] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const myCollectionRef = collection(db, 'aboutus');
+        const querySnapshot = await getDocs(myCollectionRef);
+  
+        const docs = [];
+        querySnapshot.forEach((doc) => {
+          docs.push({ id: doc.id, ...doc.data() });
+        });
+        
+        setDocuments(docs);
+      };
+     
+      fetchData();
+      
+    }, []);
+  
+
+
+
+
+
     return (
       
       <section className='about' id='about'>
+           {documents.map((doc) => (
+            <div key={doc.id}>
         <div className='about-container d-flex flex-column'>
           <div className='about-heading d-flex flex-column align-items-center justify-content-center'>
             <h1 className='about-header'>About</h1>
@@ -14,9 +43,8 @@
 
           <div className='about-desc d-flex justify-content-center'>
             <p className='about-summary'>
-              Lorem ipsum dolor sit amet consectetur. Praesent est lectus vulputate nec sodales placerat egestas
-              dignissim. Malesuada faucibus lorem accumsan sem venenatis imperdiet dolor. Nisl quis semper 
-              vulputate habitasse facilisis congue nec. Quis lectus sit velit cras metus.
+            {JSON.stringify(doc.about)}
+            
             </p>
           </div>
         </div>
@@ -28,29 +56,26 @@
           <div className='mission-text col-lg-5 d-flex flex-column justify-content-center align-items-center'>
             <h3>OUR MISSION</h3>
             <p className='aim-paragraph'>
-            Lorem ipsum dolor sit amet consectetur. Sodales vestibulum integer nisl sodales id. Tellus
-            est sit quis at suspendisse in massa egestas. Blandit aliquam sit rhoncus vitae est est 
-            justo pellentesque. Duis enim tincidunt proin urna gravida quam commodo malesuada rutrum.
-              Est a nibh ut ac est pellentesque. Molestie tellus lobortis tortor ultricies in dignissim 
-              pellentesque proin mattis. Magna pulvinar non praesent at mattis senectus praesent tellus.
+            {JSON.stringify(doc.mission)}
+           
             </p>
           </div>
        
         
         <div className='vision-text col-lg-5  d-flex flex-column justify-content-center align-items-center'>
-          <h3>OUR MISSION</h3>
+          <h3>OUR VISION</h3>
               <p className='mission-paragraph'>
-                Lorem ipsum dolor sit amet consectetur. Sodales vestibulum integer nisl sodales id. Tellus
-                est sit quis at suspendisse in massa egestas. Blandit aliquam sit rhoncus vitae est est 
-                justo pellentesque. Duis enim tincidunt proin urna gravida quam commodo malesuada rutrum.
-                  Est a nibh ut ac est pellentesque. Molestie tellus lobortis tortor ultricies in dignissim 
-                  pellentesque proin mattis. Magna pulvinar non praesent at mattis senectus praesent tellus.
+              {JSON.stringify(doc.vision)}
+              
               </p>
         </div>
         <div className='aim-container col-lg-5'>
             <img className='aim-image' src={vision}/>
           </div>
         </div>
+        </div>
+           ))}
+
       </section>
       
     );
