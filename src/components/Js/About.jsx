@@ -38,7 +38,7 @@
        
         
         <div className='vision-text col-lg-5  d-flex flex-column justify-content-center align-items-center'>
-          <h3>OUR MISSION</h3>
+          <h3>OUR VISSION</h3>
               <p className='mission-paragraph'>
                 Lorem ipsum dolor sit amet consectetur. Sodales vestibulum integer nisl sodales id. Tellus
                 est sit quis at suspendisse in massa egestas. Blandit aliquam sit rhoncus vitae est est 

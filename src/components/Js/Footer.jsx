@@ -9,7 +9,7 @@ const Footer = ()  => {
         return (
 
             // <footer className="p-5 w-full h-[200px] bg-slate-700 text-white font-['Inter'] mt-auto absolute bottom-0 ">
-            <footer className="bottom-0 left-0 w-full bg-slate-700 text-white font-['Inter'] " style={{ backgroundColor: '#273A5C' }}>
+            <footer id="contact" className="bottom-0 left-0 w-full bg-slate-700 text-white font-['Inter'] " style={{ backgroundColor: '#273A5C' }}>
 
                 <div className="flex items-center h-full justify-between pl-5">
 

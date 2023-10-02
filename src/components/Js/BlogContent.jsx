@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types"; // Corrected import
-import "../css/BlogCards.css";
+import "../css/BlogStyle.css";
 
 const BlogContent = (props) => {
-  const { id } = props.match.params;
+  console.log(props)
+  
   return (
     <div className="content-container">
       <h1>Introduction</h1>
@@ -88,9 +88,6 @@ const BlogContent = (props) => {
       </p>
     </div>
   );
-};
-BlogContent.propTypes = {
-  match: PropTypes.object.isRequired,
 };
 
 export default BlogContent;

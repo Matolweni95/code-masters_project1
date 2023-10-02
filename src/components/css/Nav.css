@@ -7,32 +7,22 @@
   box-shadow: none !important;
 }
 
-.navbar-nav .nav-link {
-  color: white; 
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
 }
 
-.navbar-brand  {
-  color: white !important;
+.navbar-nav .nav-link, .navbar-brand, .nav-link:focus, .nav-link:hover {
+  color: var(--text_color) !important; 
 }
 
 .navbar {
   background-color: transparent !important;
-  padding: 0px 46px !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-}
-
-.nav-link:focus, .nav-link:hover {
-  color: white !important;
-}
-
-.active {
-  text-decoration: underline !important;
-  color: white !important;
+  box-shadow: none !important;
 }
 
 @media screen and (min-width: 600px) {
   .support-link {
       display: none !important;
   }
-}
+
+} 

@@ -13,3 +13,16 @@ body {
   border-width: 0;
   scroll-behavior: smooth;
 }
+
+:root {
+  --background: #743943;
+  --support_btn: #CFD7DE;
+  --text_color: white;
+  --background_overlay: rgba(116, 57, 67, 0.50);
+  --about_background: #273A5C;
+  --dash_background: #273A5C;
+  --navbar_background: #D9D9D9;
+  --h1: 32px;
+  --aim-gap: 30px;
+  --heading-gap: 29px;
+}

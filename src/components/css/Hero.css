@@ -16,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(116, 57, 67, 0.50);
+    background: var(--background_overlay);
 }
 
 .hero__image {
@@ -27,15 +27,17 @@
     height: calc(100vh - 92px);
 }
 
+.hero-heading, .hero-subheading {
+    color: var(--text_color);
+}
+
 .hero-heading {
     font-size: 3.5vw;
-    color: white;
     position: relative;
     text-align: center;
 }
 
-.hero-subheading{
-    color: white;
+.hero-subheading {
     font-size: 16px;
     position: relative;
     text-align: center;

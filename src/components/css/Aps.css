@@ -9,16 +9,15 @@
 }
 
 .aps-heading {
-    gap: 15px;
+    gap: var(--heading-gap);
 }
 
 .aps-header {
-    font-size: 32px;
-    color: #743943;
+    font-size: var(--h1);
+    color: var(--background);
 }
 
 .aps-line {
-    background-color: #743943;
     width: 68px;
     height: 6px;
 }
@@ -38,7 +37,6 @@ select, .aps-percent {
 
 th {
     background-color: white !important;
-    background-color: #743943 !important;
 }
 
 
@@ -49,5 +47,8 @@ th, td {
 .calculate-btn {
     margin-top: 52px;
     color: white !important;
-    background-color: #743943 !important;
+}
+
+.calculate-btn, th, .aps-line {
+    background-color: var(--background) !important;
 }

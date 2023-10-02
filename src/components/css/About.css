@@ -7,17 +7,18 @@
 }
 
 .about-heading {
-    gap: 29px;
+    gap: var(--aim-gap);
 }
 
 .about-header {
-    font-size: 32px;
+    font-size: var(--h1);
+    color: var(--background);
 }
 
 .about-line {
     width: 68px;
     height: 6px;
-    background-color: #743943;
+    background-color: var(--background);
 }
 
 .about-summary {
@@ -27,12 +28,12 @@
 
 .aim {
     margin-top: 87px;
-    gap: 30px;
+    gap: var(--aim-gap);
     padding-bottom: 80px;
 }
 
 .aim h3, .aim-paragraph, .mission-paragraph{
-    color: white;
+    color: var(--text_color);
     padding: 15px;
 }
 
@@ -42,7 +43,7 @@
 }
 
 .mission-text, .vision-text {
-    background: var(--secondary-2, #273A5C);
+    background: var(--about_background);
 }
 
 .mission-paragraph, .aim-paragraph {

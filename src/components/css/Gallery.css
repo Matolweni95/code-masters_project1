@@ -7,14 +7,18 @@
     margin-top: 40px;
 }
 
+.gallery-header {
+    color: var(--background);
+}
+
 .gallery-heading {
-    gap: 20px;
+    gap: var(--heading-gap);
 }
 
 .gallery-line {
     width: 68px;
     height: 6px;
-    background-color: #743943;
+    background-color: var(--background);
 }
 
 .image-container {

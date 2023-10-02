@@ -10,13 +10,21 @@
 }
 
 .blog-line {
-    background-color: #743943;
+    background-color: var(--background);
     width: 68px;
     height: 6px;
 }
 
 .blog-container {
     gap: 50px;
+}
+
+.blog-heading {
+    gap: var(--heading-gap);
+}
+
+.blog-header {
+    color: var(--background);
 }
 
 .blog-summary {
@@ -45,7 +53,7 @@
 }
 
 .cards-header {
-    color: #743943;
+    color: var(--background);
     font-size: 16px;
     width: 242px;
     text-align: center;
@@ -55,7 +63,7 @@
     width: 51px;
     height: 5px;
     margin-top: -18px;
-    background-color: #743943;
+    background-color: var(--background);
 }
 
 .card-desc {
@@ -74,7 +82,7 @@
 .more {
     float: right;
     margin-right: 52px;
-    background-color: #743943;
+    background-color: var(--background);
     font-size: 12px;
     padding: 10px 14px;
     border: 1px solid black;

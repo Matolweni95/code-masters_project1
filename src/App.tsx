@@ -5,6 +5,9 @@ import Landing from './pages/Landing';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BlogCards from './components/Js/BlogCards';
+import BlogContent from './components/Js/BlogContent';
+import Dashboard from './components/Js/Dashboard';
+import Dash from './components/Js/Dash';
 
 
 function App() {
@@ -13,6 +16,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/blog" element={<BlogCards />} />
+        <Route path="/blog/id" element={<BlogContent />} />
+        <Route path="/dashboard" element={
+        <Dashboard>
+          <Routes>
+            <Route>
+              <Route path="/" element={<Dash />} />
+            </Route>
+          </Routes>
+        </Dashboard>
+        } />
       </Routes>
   </BrowserRouter>
   );

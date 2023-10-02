@@ -152,7 +152,7 @@ const Aps: React.FC = () => {
           </div>
         </div>
 
-        <div className="calculator d-flex flex-wrap align-items-center justify-content-center ">
+        <div className="calculator flex-column d-flex flex-wrap align-items-center justify-content-center ">
           <div className="main-calculator d-flex justify-content-center flex-column align-items-center ">
             <div className="table-responsive">
               <table className="table score">
@@ -199,7 +199,7 @@ const Aps: React.FC = () => {
             </div>
             <button className="btn calculate-btn" onClick={calculateTotalLevels}>CALCULATE</button>
           </div>
-          <div className="result d-flex flex-column align-items-center">
+          <div className="result d-flex flex-column align-items-center mt-8">
             <h4>RESULT</h4>
             <p>{getApsMessage()}</p>
           </div>
