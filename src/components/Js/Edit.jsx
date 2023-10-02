@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../index.css"
-
+// import "../index.css"
+import'../css/Edit.css'
 function Edit() {
   // Define state variables to store input values
   const [postTitle, setPostTitle] = useState("");
@@ -54,7 +54,7 @@ function Edit() {
           </div>
           <div className="input">
             <textarea
-              id="textField"
+              id="text"
               placeholder="POST BODY"
               value={postBody}
               onChange={handleInputChange}
@@ -69,8 +69,7 @@ function Edit() {
               onChange={handleInputChange}
             />
           </div>
-         
-          <button type="submit" className="btn">SUBMIT</button>
+        <button type="submit" className="custom-button">SUBMIT</button>
         </form>
       </div>
     </div>

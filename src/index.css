@@ -10,7 +10,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}/* Style for the Post Title */
+}
+
+/* Style for the Post Title */
 .post-title {
   width: 250px;
   height: 44px;
@@ -101,17 +103,9 @@ button {
   color: #fff;
   padding: 10px 20px;
   text-align:left;
+ 
   display: flex;
 }
-
-button:hover {
-  background-color: maroon;
-  text-align:left;
-}
-
-/* Edit.css */
-
-/* Style for the container */
 .contain {
   padding: 5px;
   margin: 100px 100px 200px 8px;
@@ -186,5 +180,3 @@ textarea {
   background-color: #d9d9d9;
 
 }
-
-

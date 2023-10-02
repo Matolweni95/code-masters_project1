@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import "../index.css";
+import { Link } from "react-router-dom"
+import'../css/Create.css'
+
 function Create() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
