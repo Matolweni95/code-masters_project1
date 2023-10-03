@@ -1,9 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 import "../css/BlogStyle.css";
+import BlogHero from "./BlogHero";
 import imageOne from "../images/imageOne.png";
 
 const BlogCards = () => {
+  const blogTitle = "Our Stories";
   const containerRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -115,29 +118,117 @@ const BlogCards = () => {
       content:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
     },
+    {
+      id: 14,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 15,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 16,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 14,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 15,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 16,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 14,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 15,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 16,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 14,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 15,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 16,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 14,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 15,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
+    {
+      id: 16,
+      title: "How I retain and remember what I study",
+      content:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum est atque, magnam soluta, hic sit ipsum fugiat similique quia veniam consectetur eos libero perspiciatis nobis minima, numquam aliquam maxime asperiores?",
+    },
   ];
 
   const numRows = 2;
   const numColumns = 3;
   const itemsPerPage = numRows * numColumns;
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(blogData.length / itemsPerPage);
 
-  // Create an array to represent the pages
-  const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-  // Calculate the start and end index for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = currentPage * itemsPerPage;
-
-  // Slice the blog data for the current page
+  const endIndex = startIndex + itemsPerPage;
   const currentPageData = blogData.slice(startIndex, endIndex);
 
   return (
-    //displayed cards below
     <div>
-      <div className="containers" ref={containerRef}>
+      <BlogHero title={blogTitle} />
+      <div>
+        <Link to="/" className="back-btn">
+          Back
+        </Link>
+      </div>
+      <div className="container" ref={containerRef}>
         <div className="grid-container">
           {currentPageData.map((article) => (
             <div key={article.id} className="grid-item">
@@ -150,27 +241,28 @@ const BlogCards = () => {
                 <p>{article.content}</p>
 
                 <Link to={`/blog/${article.id}`}>
-                  <button>READ MORE</button>
+                  <button className="btn-read-more">
+                    <span>READ MORE</span>
+                  </button>
                 </Link>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* The pagination below*/}
       <div className="pagination">
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
-          className="btn-colour"
+          className="btn-colour btn-read-more"
         >
-          Prev
+          prev
         </button>
-        {pagesArray.map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <button
             key={page}
             onClick={() => scrollToPage(page)}
-            className={page === currentPage ? "active" : ""}
+            className={`btn-read-more ${page === currentPage ? "active" : ""}`}
           >
             {page}
           </button>
@@ -178,11 +270,12 @@ const BlogCards = () => {
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="btn-colour"
+          className="btn-colour btn-read-more"
         >
-          Nex
+          next
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

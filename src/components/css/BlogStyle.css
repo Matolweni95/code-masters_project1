@@ -15,7 +15,8 @@
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Add some spacing between the grid and pagination */
+  margin-top: 90px;
+  margin-bottom: 90px;
 }
 
 .pagination .btn-colour {
@@ -88,16 +89,46 @@ hr {
 h2 {
   font-size: 20px;
 }
-button {
-  /* padding: 10px 20px;
-  margin-bottom: 30px;
-  margin: 25px 5px;
+
+.btn-read-more h5 {
+  color: black;
+}
+.btn-read-more {
+  padding: 5px 10px;
+  margin: 25px 35px;
   background-color: white;
   border: 1px solid maroon;
-  cursor: pointer; */
+  cursor: pointer;
+}
+
+.btn-read-more span {
+  color: #000;
 }
 .content-container {
-  max-width: 1000px; /* Optional: Set a maximum width for your content */
-  margin: 0 auto; /* Center content horizontally */
-  padding: 0 30px; /* Add 30px padding on both sides */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px;
+  margin-bottom: 100px;
+  line-height: 29.05px;
+}
+
+.content-container h1 {
+  margin-bottom: 30px;
+}
+.content-container h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.back-btn {
+  position: relative;
+  left: 50px;
+  border: 1px solid #000;
+  color: #000;
+  text-decoration: none;
+  padding: 2px 10px;
+}
+
+.back-btn:hover {
+  background-color: #5f1e1e;
+  color: white;
 }

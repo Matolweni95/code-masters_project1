@@ -1,0 +1,35 @@
+.BlogHero {
+  height: 375px;
+}
+
+.BlogHero-container {
+  background-image: url(../images/imageOne.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 325px;
+}
+
+.BlogHero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(116, 57, 67, 0.5);
+  height: 325px;
+}
+
+.hero__image {
+  width: 100%;
+}
+
+.BlogHero-content {
+  height: 170px;
+}
+
+.BlogHero-heading {
+  font-size: 3.5vw;
+  color: white;
+  position: relative;
+  text-align: center;
+}
