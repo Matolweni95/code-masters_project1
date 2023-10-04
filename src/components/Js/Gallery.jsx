@@ -1,5 +1,8 @@
 import React from 'react';
-import '../css/Gallery.css'
+import '../css/Gallery.css';
+import { useNavigate } from 'react-router-dom';
+import { storage } from '../Config/Firebase-config';
+import { db } from '../Config/Firebase-config';
 
 
 const imagePaths = [
@@ -17,6 +20,7 @@ const imagePaths = [
 ];
 
 const Gallery = () => {
+const navigate = useNavigate();
   return (
     <section className='gallery' id='gallery'>
       <div className='gallery-container'>
@@ -30,8 +34,9 @@ const Gallery = () => {
           <div className='image-cont col-lg-3' key={index}>
             <img className='gallery-image' src={imagePath} alt={`Image ${index}`} />
           </div>
-        ))}
+        ))}     
       </div>
+      <button onClick={navigate('/gallery')} className='gallery-btn mt-4'>Show More</button>
       </div>
     </section>
   )

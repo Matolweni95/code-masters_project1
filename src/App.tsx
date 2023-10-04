@@ -8,6 +8,7 @@ import BlogCards from './components/Js/BlogCards';
 import BlogContent from './components/Js/BlogContent';
 import Dashboard from './components/Js/Dashboard';
 import Dash from './components/Js/Dash';
+import Gallery from './pages/Gallery';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/blog" element={<BlogCards />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog/id" element={<BlogContent />} />
         <Route path="/dashboard" element={
         <Dashboard>

@@ -1,0 +1,4 @@
+.banner {
+    background-color: var(--background);
+    height: var(--banner-height);
+}

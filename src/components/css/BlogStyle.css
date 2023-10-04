@@ -88,14 +88,14 @@ hr {
 h2 {
   font-size: 20px;
 }
-button {
-  /* padding: 10px 20px;
+/* button {
+  padding: 10px 20px;
   margin-bottom: 30px;
   margin: 25px 5px;
   background-color: white;
   border: 1px solid maroon;
-  cursor: pointer; */
-}
+  cursor: pointer; 
+} */
 .content-container {
   max-width: 1000px; /* Optional: Set a maximum width for your content */
   margin: 0 auto; /* Center content horizontally */

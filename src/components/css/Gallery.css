@@ -29,3 +29,11 @@
 .gallery-image {
     width: 100%;
 }
+
+.gallery-btn {
+    float: right;
+    margin-right: 158px;
+    padding: var(--button-padding);
+    background-color: var(--background);
+    color: var(--text_color);
+}
