@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Footer from './components/Js/Footer';
 import './index.css'
@@ -9,6 +10,8 @@ import BlogContent from './components/Js/BlogContent';
 import Dashboard from './components/Js/Dashboard';
 import Dash from './components/Js/Dash';
 import Gallery from './pages/Gallery';
+import Create from './components/Js/Create';
+import Stories from './components/Js/Stories';
 
 
 function App() {
@@ -19,11 +22,14 @@ function App() {
         <Route path="/blog" element={<BlogCards />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog/id" element={<BlogContent />} />
-        <Route path="/dashboard" element={
+        <Route path="/dashboard/*" element={
         <Dashboard>
           <Routes>
             <Route>
               <Route path="/" element={<Dash />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/stories" element={<Stories />} />
+              <Route path="/blog" element={<BlogCards />} />
             </Route>
           </Routes>
         </Dashboard>
