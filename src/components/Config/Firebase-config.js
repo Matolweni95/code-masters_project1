@@ -3,6 +3,7 @@ import {getFirestore} from "@firebase/firestore"
 import {getStorage} from "firebase/storage";
 
 
+
     const firebaseConfig = {
         apiKey: "AIzaSyDiefiG9E4JKiTNnnRVnAalndYdW5HCFcg",
         authDomain: "schoolproject-b10ad.firebaseapp.com",
@@ -22,4 +23,5 @@ import {getStorage} from "firebase/storage";
 
 
     
-     
+   
+ export default db;
