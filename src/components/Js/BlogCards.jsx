@@ -183,6 +183,7 @@ const BlogCards = () => {
           Nex
         </button>
       </div>
+      
     </div>
   );
 };

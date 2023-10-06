@@ -1,90 +1,121 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
-function Create() {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [isUploading, setIsUploading] = useState(false);
+import db from "../Config/Firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+import "../css/Create.css";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-  // Reference to the hidden file input element
-  const fileInputRef = useRef();
+function Create() {
+  const initialState = {
+    title: "",
+    body: "",
+    picture: null,
+  };
+
+  const [data, setData] = useState(initialState);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setData({ ...data, [name]: value });
+  };
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedImage(file);
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setImagePreview(e.target.result);
-    };
-    reader.readAsDataURL(file);
-
-    setIsUploading(true);
-    setTimeout(() => {
-      setIsUploading(false);
-    }, 3000);
+    const imageFile = event.target.files[0];
+    setData({ ...data, picture: imageFile });
   };
-  <div className="image-preview">
-  {isUploading ? (
-    <p>Uploading...</p>
-  ) : (
-    <img src={imagePreview} alt="Selected" className="circular-image" />
-  )}
-</div>
 
-  const handleAddImageClick = () => {
-    // Trigger the hidden file input
-    fileInputRef.current.click();
+  
+  const handleImageUpload = async (imageFile) => {
+    try {
+      const storage = getStorage();
+      const storageRef = ref(storage, "images/" + Date.now());
+
+    
+      await uploadBytes(storageRef, imageFile);
+
+     
+      const imageUrl = await getDownloadURL(storageRef);
+
+      return imageUrl;
+    } catch (error) {
+      console.error("Error uploading image: ", error);
+      throw error;
+    }
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+     
+      if (data.picture instanceof File) {
+        
+        const imageUrl = await handleImageUpload(data.picture);
+
+       
+        const storiesRef = collection(db, "stories");
+        await addDoc(storiesRef, {
+          title: data.title,
+          body: data.body,
+          picture: imageUrl,
+        });
+
+        setData(initialState);
+      } else {
+      
+        console.error("No image file selected.");
+      }
+    } catch (error) {
+      console.error("Error adding question: ", error);
+    }
+  };
+
+
+  
 
   return (
     <div>
-      <Link to={"/Edit"}>Edit</Link>
-      <div className="container">
-       <h1 className="post-title">Create Post</h1>
-        <div className="image-preview">
-          {/* Hidden file input */}
-          <input
-            type="file"
-            id=""
-            accept="image/*"
-            onChange={handleImageChange}
-            ref={fileInputRef}
-            style={{ display: "none" }} // Hide the input element
-          />
-
-          {/* Plus sign button for adding an image */}
-          <button className="add-image-button" onClick={handleAddImageClick}>
-            <span>Upload picture</span>
-          </button>
-        </div>
-        {selectedImage && (
-          <div className="image-preview">
-            {isUploading ? (
-              <p>Uploading...</p>
-            ) : (
-              <img src={imagePreview} alt="Selected" />
-            )}
-          </div>
-        )}
+      <form onSubmit={handleSubmit} className="container">
+        <h1 className="post-title">Create Post</h1>
 
         <div className="form-group">
-          <input type="text" className="input-field" placeholder="Post title" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Title"
+            name="title"
+            value={data.title}
+            onChange={handleInputChange}
+          />
         </div>
         <div className="text-group">
-          <textarea className="text-field" placeholder="POST BODY"></textarea>
+          <textarea
+            className="text-field"
+            type="text"
+            name="body"
+            placeholder="POST BODY"
+            onChange={handleInputChange}
+            value={data.body}
+          ></textarea>
         </div>
-        <div className="form-group">
-          <input type="text" className="input-field" placeholder="Tag/Category" />
-        </div>
-        <button type="submit" className="custom-button">SUBMIT</button>
 
-      </div>
+        <div className="form-group">
+          <input
+            type="file"
+            className="form-control"
+            placeholder="image"
+            name="picture"
+            onChange={handleImageChange}
+          />
+        </div>
+        <button  type="submit" className="custom-button">
+          SUBMIT
+        </button>
+      </form>
+
+      <div></div>
     </div>
   );
 }
 
-export default Create; 
-
-
-
+export default Create;
