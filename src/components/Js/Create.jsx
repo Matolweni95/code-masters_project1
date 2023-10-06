@@ -73,7 +73,7 @@ function Create() {
           <input type="text" className="input-field" placeholder="Post title" />
         </div>
         <div className="text-group">
-          <textarea className="text-field" placeholder="POST BODY"></textarea>
+          <textarea className="text-field" placeholder="POST BODY" ></textarea>
         </div>
         <div className="form-group">
           <input
