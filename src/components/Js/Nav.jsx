@@ -19,6 +19,9 @@ const Navi = () => {
           <Nav.Link href="#contact">Contact Us</Nav.Link>
           <Nav.Link href="#aps">APS Calculator</Nav.Link>
           <Nav.Link href="#support" className='support-link'>Support Us</Nav.Link>
+          <Nav.Link href="#create">Create</Nav.Link>
+          <Nav.Link href="#edit">Edit</Nav.Link>
+          <Nav.Link href="#image">ImageGallery</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container> 

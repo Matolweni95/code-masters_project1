@@ -1,0 +1,18 @@
+/* ImageGallery.css */
+.images {
+    display: flex; /* Use Flexbox to create a row layout */
+    flex-wrap: wrap; /* Allow images to wrap to the next row if needed */
+  }
+  
+  .images> div {
+    margin-right: 10px; /* Add some margin between images */
+  }
+  
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .link {
+    margin-right: 20px; /* Adjust the value to set the desired spacing */
+  }

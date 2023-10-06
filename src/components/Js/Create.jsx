@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
+import '../css/create.css';
+
 function Create() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [fileName, setFileName] = useState(""); // State to store the filename
 
   // Reference to the hidden file input element
   const fileInputRef = useRef();
@@ -23,14 +25,10 @@ function Create() {
     setTimeout(() => {
       setIsUploading(false);
     }, 3000);
+
+    // Set the filename
+    setFileName(file.name);
   };
-  <div className="image-preview">
-  {isUploading ? (
-    <p>Uploading...</p>
-  ) : (
-    <img src={imagePreview} alt="Selected" className="circular-image" />
-  )}
-</div>
 
   const handleAddImageClick = () => {
     // Trigger the hidden file input
@@ -40,8 +38,8 @@ function Create() {
   return (
     <div>
       <Link to={"/Edit"}>Edit</Link>
-      <div className="container">
-       <h1 className="post-title">Create Post</h1>
+      <div className="containers">
+        <h1 className="post-title">Create Post</h1>
         <div className="image-preview">
           {/* Hidden file input */}
           <input
@@ -63,28 +61,34 @@ function Create() {
             {isUploading ? (
               <p>Uploading...</p>
             ) : (
-              <img src={imagePreview} alt="Selected" />
+              <>
+                <p>{fileName}</p> {/* Display the filename */}
+                {/* <img src={imagePreview} alt="Selected" /> */}
+              </>
             )}
           </div>
         )}
 
-        <div className="form-group">
+        <div className="form1">
           <input type="text" className="input-field" placeholder="Post title" />
         </div>
         <div className="text-group">
           <textarea className="text-field" placeholder="POST BODY"></textarea>
         </div>
         <div className="form-group">
-          <input type="text" className="input-field" placeholder="Tag/Category" />
+          <input
+            type="text"
+            className="input-field"
+            placeholder="Tag/Category"
+          />
         </div>
-        <button type="submit" className="custom-button">SUBMIT</button>
-
+        <button type="submit" className="custom-button">
+          SUBMIT
+        </button>
       </div>
     </div>
   );
 }
 
-export default Create; 
-
-
+export default Create;
 

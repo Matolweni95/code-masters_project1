@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import "../index.css"
-
+import'../css/Edit.css';
 function Edit() {
   // Define state variables to store input values
   const [postTitle, setPostTitle] = useState("");

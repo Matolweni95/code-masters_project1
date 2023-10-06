@@ -1,0 +1,55 @@
+/* Edit.css */
+
+/* Style for the container */
+.contain {
+    max-width: 5000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Style for input fields */
+  .input {
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color:#D9D9D9;
+    margin: 20px;
+   width: 300px;
+  }
+  
+  /* Style for the submit button */
+  .btn {
+    background-color: maroon;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 20px;
+    align-items: center;
+  }
+  
+  /* Style for the link */
+  .link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  /* Style for the heading */
+  .name {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  
+  
