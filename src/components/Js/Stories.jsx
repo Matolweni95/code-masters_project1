@@ -10,7 +10,9 @@ function Stories() {
   const [stories, setStories] = useState([]);
   const containerRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
+
   const framesPerPage = 6; 
+
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -63,6 +65,7 @@ function Stories() {
   };
 
 
+
   const totalPages = Math.ceil(stories.length / framesPerPage);
 
   const startIndex = (currentPage - 1) * framesPerPage;
@@ -96,6 +99,7 @@ function Stories() {
             <div className="div-2">
               <div className="div-wrapper">
                 <Link
+
                   to={`/dashboard/edit/${story.id}`}
                   className="text-wrapper-2"
                 >

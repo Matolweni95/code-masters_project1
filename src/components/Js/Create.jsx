@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import db from "../Config/Firebase-config";
 import { collection, addDoc } from "firebase/firestore";
-import "../css/Create.css";
+
+import "../css/create.css";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function Create() {

@@ -12,7 +12,9 @@ import Dash from './components/Js/Dash';
 import Gallery from './pages/Gallery';
 import Create from './components/Js/Create';
 import Stories from './components/Js/Stories';
+
 import Edit from './components/Js/Edit';
+
 
 
 function App() {
@@ -30,7 +32,9 @@ function App() {
               <Route path="/" element={<Dash />} />
               <Route path="/create" element={<Create />} />
               <Route path="/stories" element={<Stories />} />
+
               <Route path="/edit/:id" element={<Edit />} />
+
             </Route>
           </Routes>
         </Dashboard>
