@@ -13,6 +13,9 @@ import Gallery from './pages/Gallery';
 import Create from './components/Js/Create';
 import Stories from './components/Js/Stories';
 
+import Edit from './components/Js/Edit';
+
+
 
 function App() {
   return (
@@ -29,7 +32,9 @@ function App() {
               <Route path="/" element={<Dash />} />
               <Route path="/create" element={<Create />} />
               <Route path="/stories" element={<Stories />} />
-              <Route path="/blog" element={<BlogCards />} />
+
+              <Route path="/edit/:id" element={<Edit />} />
+
             </Route>
           </Routes>
         </Dashboard>

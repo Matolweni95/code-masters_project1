@@ -1,78 +1,118 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import db from "../Config/Firebase-config";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import "../css/edit.css";
 import { Link } from "react-router-dom";
-// import "../index.css"
 
 function Edit() {
-  // Define state variables to store input values
-  const [postTitle, setPostTitle] = useState("");
-  const [postBody, setPostBody] = useState("");
-  const [tagCategory, setTagCategory] = useState("");
+  const { id } = useParams();
+  const [storyData, setStoryData] = useState({
+    title: "",
+    body: "",
+    picture: "",
+  });
 
-  // Event handler to handle input changes
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
+  const [imageUrl, setImageUrl] = useState("");
 
-    // Use the input field's ID to determine which state variable to update
-    if (id === "inputField") {
-      setPostTitle(value);
-    } else if (id === "textField") {
-      setPostBody(value);
-    } else if (id === "tagField") {
-      setTagCategory(value);
-    }
+  useEffect(() => {
+    const fetchStoryData = async () => {
+      try {
+        const storyDocRef = doc(db, "stories", id);
+        const storyDocSnap = await getDoc(storyDocRef);
+
+        if (storyDocSnap.exists()) {
+          const data = storyDocSnap.data();
+          setStoryData(data);
+          setImageUrl(data.picture); 
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching story data: ", error);
+      }
+    };
+
+    fetchStoryData();
+  }, [id]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setStoryData({ ...storyData, [name]: value });
   };
 
-  // Event handler for form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+  const handleImageUpload = async (imageFile) => {
+    try {
+      const storage = getStorage();
+      const storageRef = ref(storage, "images/" + Date.now());
+  
+      await uploadBytes(storageRef, imageFile);
+  
+      const imageUrl = await getDownloadURL(storageRef);
+      setImageUrl(imageUrl);
+  
+      return imageUrl;
+    } catch (error) {
+      console.error("Error uploading image: ", error);
+      throw error;
+    }
+  };
+  
 
-    // Do something with the captured data, e.g., send it to an API
-    console.log("Post Title:", postTitle);
-    console.log("Post Body:", postBody);
-    console.log("Tag/Category:", tagCategory);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    // Clear the form fields
-    setPostTitle("");
-    setPostBody("");
-    setTagCategory("");
+    try {
+
+      const storyDocRef = doc(db, "stories", id);
+      await updateDoc(storyDocRef, {
+        title: storyData.title,
+        body: storyData.body,
+        picture: imageUrl, 
+      });
+
+
+    } catch (error) {
+      console.error("Error updating story data: ", error);
+    }
   };
 
   return (
     <div>
-      <Link to={"/"}>Create</Link>
-      <h1 className="name">Edit Post</h1> 
-      <div className="contain">
-        <form onSubmit={handleSubmit}>
-          <div className="input">
-            <input
-              type="text"
-              id="inputField"
-              placeholder="Post Title"
-              value={postTitle}
-              onChange={handleInputChange}
-            />
+      <form onSubmit={handleSubmit}>
+     
+        <input
+          type="text"
+          name="title"
+          value={storyData.title}
+          onChange={handleInputChange}
+        />
+        <textarea
+          name="body"
+          value={storyData.body}
+          onChange={handleInputChange}
+        />
+
+    
+        {imageUrl && (
+          <div className="image-url">
+            <strong>Image URL:</strong> {imageUrl}
           </div>
-          <div className="input">
-            <textarea
-              id="textField"
-              placeholder="POST BODY"
-              value={postBody}
-              onChange={handleInputChange}
-            ></textarea>
-          </div>
-          <div className="field">
-            <input
-              type="text"
-              id="tagField"
-              placeholder="TAG /CATEGORY"
-              value={tagCategory}
-              onChange={handleInputChange}
-            />
-          </div>
-         
-          <button type="submit" className="btn">SUBMIT</button>
-        </form>
-      </div>
+        )}
+
+
+        <input
+          type="file"
+          name="picture"
+          onChange={(e) => handleImageUpload(e.target.files[0])}
+        />
+
+     
+        <Link to={"/dashboard /stories"} type="submit" className="save-button">
+          SAVE/UPDATE
+        </Link>
+      </form>
     </div>
   );
 }

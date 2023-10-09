@@ -10,14 +10,17 @@
     font-weight: 700;
     letter-spacing: 0;
     line-height: normal;
+
     left: 50%;
+
   }
   
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 18.5%; 
+
+
 
   }
   
@@ -70,7 +73,9 @@
       gap: 30px;
       width: 500px;  
       justify-content: center; 
-      margin-left: 500px;
+
+     margin-left: 200px;
+
     }
     
   
@@ -172,4 +177,7 @@
     height: 1px;
     width: 46px;
     border: 2px solid   rgb(60, 21, 27);
+
   }
+
+  
