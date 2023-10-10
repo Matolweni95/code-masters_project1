@@ -19,11 +19,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
+    padding: 25px 18.2%;
 
   }
   
+  div.label{
+margin-left: 5%;
+  }
+
+  div.frame1{
+   margin-right: 1%;
+  }
+
+  div.div-wrapper{
+    color: #ffffff;
+  }
 
   
   .frame1 {
@@ -73,8 +83,7 @@
       gap: 30px;
       width: 500px;  
       justify-content: center; 
-
-     margin-left: 200px;
+     margin-left: 500px;
 
     }
     
