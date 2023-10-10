@@ -25,16 +25,13 @@ function Create() {
     setData({ ...data, picture: imageFile });
   };
 
-  
   const handleImageUpload = async (imageFile) => {
     try {
       const storage = getStorage();
       const storageRef = ref(storage, "images/" + Date.now());
 
-    
       await uploadBytes(storageRef, imageFile);
 
-     
       const imageUrl = await getDownloadURL(storageRef);
 
       return imageUrl;
@@ -48,12 +45,9 @@ function Create() {
     event.preventDefault();
 
     try {
-     
       if (data.picture instanceof File) {
-        
         const imageUrl = await handleImageUpload(data.picture);
 
-       
         const storiesRef = collection(db, "stories");
         await addDoc(storiesRef, {
           title: data.title,
@@ -63,7 +57,6 @@ function Create() {
 
         setData(initialState);
       } else {
-      
         console.error("No image file selected.");
       }
     } catch (error) {
@@ -71,50 +64,65 @@ function Create() {
     }
   };
 
-
-  
-
   return (
     <div>
       <form onSubmit={handleSubmit} className="container">
         <h1 className="post-title">Create Post</h1>
 
-        <div className="form-group">
+        <div className="form-control">
           <input
+            className="form-group"
+            type="file"
+            placeholder="image"
+            name="picture"
+            onChange={handleImageChange}
+          />
+        </div>
+
+
+
+
+        <div className="form-control">
+          <input
+            className="form-group"
             type="text"
-            className="form-control"
             placeholder="Title"
             name="title"
             value={data.title}
             onChange={handleInputChange}
           />
         </div>
-        <div className="text-group">
-          <textarea
-            className="text-field"
-            type="text"
-            name="body"
-            placeholder="POST BODY"
-            onChange={handleInputChange}
-            value={data.body}
-          ></textarea>
+
+        <div className="form-control">
+          <div className="text-field">
+            <textarea
+              type="text"
+              name="body"
+              placeholder="POST BODY"
+              onChange={handleInputChange}
+              value={data.body}
+            ></textarea>
+          </div>
         </div>
 
-        <div className="form-group">
+      
+     <div className="form-control">
           <input
-            type="file"
-            className="form-control"
-            placeholder="image"
-            name="picture"
-            onChange={handleImageChange}
+            className="form-group"
+            type="text"
+            placeholder="Title"
+            name="title"
+            value={data.title}
+            onChange={handleInputChange}
           />
         </div>
-        <button  type="submit" className="custom-button">
+
+
+
+        <button type="submit" className="custom-button">
           SUBMIT
         </button>
       </form>
-
-      <div></div>
     </div>
   );
 }
