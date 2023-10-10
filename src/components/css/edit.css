@@ -1,19 +1,54 @@
+/* create.css */
 
-
-.image-url {
-  margin-top: 10px;
-  font-weight: bold;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.save-button {
-  margin-top: 20px;
-  background-color: #007bff;
+.post-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin-bottom: 20px;
+  background-color: #d9d9d9;
+}
+
+.input,
+.text-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #d9d9d9;
+  height: 100px;
+}
+
+.form-group {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #d9d9d9;
+}
+
+.text-field textarea {
+  height: 150px;
+  background-color: #d9d9d9;
+}
+
+.save-button{
+  background-color: maroon;
   color: #fff;
   border: none;
+  border-radius: 5px;
   padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
+  margin: 20px;
 }
 
-.save-button:hover {
-  background-color: #0056b3;
+.custom-button:hover {
+  background-color: maroon;
 }
