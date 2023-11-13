@@ -1,0 +1,27 @@
+.group {
+    background-color:  blue;
+}
+
+.cont { 
+    background-color: white;
+    z-index: 9879484;
+    padding: 25px 15px;
+    border-radius: 15px;
+}
+
+.login {
+    background-image: url(../images/IMG_8375.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--background_overlay);
+}

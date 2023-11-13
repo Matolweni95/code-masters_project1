@@ -1,5 +1,6 @@
 import React from 'react';
-import '../css/Topnav.css'
+import '../css/Topnav.css';
+import { Link } from 'react-router-dom';
 
 const Topnav = () => {
   return (
@@ -10,8 +11,10 @@ const Topnav = () => {
           <p className='topnav__text email'>Email: sebitjasec7@gmail.com</p> 
         </div>
         <div className='container d-flex justify-content-end'>
-          <p className='topnav__text'>Portal</p>
-          <button className='support-btn'>Support Us</button>
+          <Link to ="/login">
+            <p className='topnav__text'>Portal</p>
+          </Link>
+            <button className='support-btn'>Support Us</button>
         </div>
       </div>
     </>

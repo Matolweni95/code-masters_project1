@@ -36,7 +36,7 @@ const navigate = useNavigate();
           </div>
         ))}     
       </div>
-      <button onClick={navigate('/gallery')} className='gallery-btn mt-4'>Show More</button>
+      <button onClick={() => navigate('/gallery')} className='gallery-btn mt-4'>Show More</button>
       </div>
     </section>
   )

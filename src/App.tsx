@@ -12,8 +12,9 @@ import Dash from './components/Js/Dash';
 import Gallery from './pages/Gallery';
 import Create from './components/Js/Create';
 import Stories from './components/Js/Stories';
-
+import Login from './components/Js/Login';
 import Edit from './components/Js/Edit';
+import ContentCreatorNav from './components/Js/ContentCreatorNav';
 
 
 
@@ -25,6 +26,8 @@ function App() {
         <Route path="/blog" element={<BlogCards />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog/id" element={<BlogContent />} />
+        <Route path="/login" element={<Login />} />
+        
         <Route path="/dashboard/*" element={
         <Dashboard>
           <Routes>
@@ -32,15 +35,26 @@ function App() {
               <Route path="/" element={<Dash />} />
               <Route path="/create" element={<Create />} />
               <Route path="/stories" element={<Stories />} />
-
               <Route path="/edit/:id" element={<Edit />} />
-
             </Route>
           </Routes>
         </Dashboard>
         } />
+
+        <Route path="/conentcreator/*" element={
+        <ContentCreatorNav>
+          <Routes>
+            <Route>
+              <Route path="/" element={<Dash />} />
+              <Route path="/blog" element={<Create />} />
+              <Route path="/gallery" element={<Stories />} />
+            </Route>
+          </Routes>
+        </ContentCreatorNav>
+        } />
+
       </Routes>
-  </BrowserRouter>
+      </BrowserRouter>
   );
   
 }
