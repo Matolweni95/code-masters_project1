@@ -99,7 +99,6 @@ function Stories() {
             <div className="div-2">
               <div className="div-wrapper">
                 <Link
-
                   to={`/dashboard/edit/${story.id}`}
                   className="text-wrapper-2"
                 >
