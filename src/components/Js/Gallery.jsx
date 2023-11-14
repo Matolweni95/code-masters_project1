@@ -19,7 +19,7 @@ const imagePaths = [
 
 ];
 
-const Gallery = () => {
+const Gallerys = () => {
 const navigate = useNavigate();
   return (
     <section className='gallery' id='gallery'>
@@ -42,4 +42,4 @@ const navigate = useNavigate();
   )
 }
 
-export default Gallery
+export default Gallerys

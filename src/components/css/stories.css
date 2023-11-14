@@ -14,32 +14,38 @@
     left: 50%;
 
   }
+
+  .nav-container {
+    
+  }
   
   .header-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 18.2%;
-
+    margin-bottom: 30px;
+    margin-top: 20px;
+    justify-content: center;
+ 
   }
   
   div.label{
 margin-left: 5%;
   }
 
-  div.frame1{
-    margin-right: 12%;
-   }
 
   div.div-wrapper{
     color: #ffffff;
   }
 
+  .create-container {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
   
   .frame1 {
     align-items: center;
+    
     background: rgba(116, 57, 67, 1);
-
     display: inline-flex;
     gap: 20px;
     justify-content: center;
@@ -70,6 +76,7 @@ margin-left: 5%;
     display: inline-flex;
     flex-direction: column;
     gap: 34px;
+    margin-bottom: 30px;
     height: 370px;
     position: relative;
    
@@ -78,12 +85,12 @@ margin-left: 5%;
   
   
   .frame-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      width: 500px;  
-      justify-content: center; 
-     margin-left: 500px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      height : calc(100vh -80px);
+      overflow-y: auto;
 
     }
     

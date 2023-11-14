@@ -35,7 +35,7 @@ const Login = () => {
 
         if(localStorage.getItem('userId') != null){
           if(localStorage.getItem('userType') == "Creator"){
-            navigate('/conentcreator')
+            navigate('/contentcreator')
           } else {
             navigate('/dashboard')
           }
