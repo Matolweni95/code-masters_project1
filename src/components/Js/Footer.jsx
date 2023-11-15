@@ -4,13 +4,13 @@ import '../css/Footer.css';
 const Footer = () => {
     return (
         <footer id="contact" className="bg-slate-700 text-white font-['Inter']" style={{ backgroundColor: '#273A5C' }}>
-            <div className="container mx-auto py-6 lg:py-10">
+            <div className= "mx-auto w-full p-4 py-6 lg:py-8">
                 <div className="flex flex-col lg:flex-row lg:justify-between items-center">
                     {/* Social Media Icons */}
-                    <div className="lg:w-1/4 text-center lg:text-left mb-4 lg:mb-0">
-                        <p className="text-lg lg:text-base">FOLLOW US</p>
-                        <p className="text-sm lg:text-xs mt-2 lg:mt-4">Yes, we are social</p>
-                        <div className="mt-4 flex items-center gap-4 lg:ml-11 "> 
+                    <div  class="lg:w-1/4 text-center lg:text-right mb-4 lg:mb-0 flex flex-col items-center lg:items-start lg:ml-10">
+                        <p class="text-lg lg:text-base lg:ml-11">FOLLOW US</p>
+                        <p class="text-sm lg:text-xs mt-2 lg:ml-11">Yes, we are social</p>
+                        <div className="mt-2 flex gap-4 lg:ml-11 "> 
                             {/* Facebook icon */}
                             <svg
                                 width={19}
@@ -72,19 +72,20 @@ const Footer = () => {
                         LOGO
                     </div>
 
-                    {/* Contact us section */}
-                    <div className="lg:w-1/4 text-center lg:text-left">
+                    {/* Contact us sections */}
+                    <div className="lg:w-1/4 text-center lg:text-right">
                         <div className="text-lg lg:text-base">CONTACT US</div>
-                        <div className="text-sm lg:text-xs mt-2 lg:mt-4">school@gmail.com</div>
-                        <p className="text-sm lg:text-xs mt-2 lg:mt-4">
+                        <div className="text-sm lg:text-xs mt-4 lg:mt-4">school@gmail.com</div>
+                        <p className=" mt-4 text-sm lg:text-xs lg:mt-4">
                             41 Juta Street, Braamfontain,
-                            <br />
+                            <br/>
                             Johannesburg, 2001
                         </p>
                     </div>
                 </div>
 
-                <div className="mt-6 lg:mt-10 border-b-2 border-white"></div>
+                <div className="mt-6 lg:w-1/2 lg:mt-3 mx-auto w-full border-b-2 border-white"></div>
+
 
                 <div className="text-sm lg:text-xs flex justify-center items-center gap-1 mt-4">
                     <span style={{ color: 'red' }}>©</span> School name. All rights reserved.
