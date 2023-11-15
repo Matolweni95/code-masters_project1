@@ -72,7 +72,7 @@ const Footer = () => {
                         LOGO
                     </div>
 
-                    {/* Contact us section */}
+                    {/* Contact us sections */}
                     <div className="lg:w-1/4 text-center lg:text-right">
                         <div className="text-lg lg:text-base">CONTACT US</div>
                         <div className="text-sm lg:text-xs mt-4 lg:mt-4">school@gmail.com</div>
