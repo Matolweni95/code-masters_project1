@@ -45,7 +45,7 @@ function App() {
               } />
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/gallerys" element={<Gallerys />} />
-              {/* <Route path="/contact" element={<ContactForm />} /> */}
+              <Route path="/contact" element={<ContactForm />} />
             </Route>
           </Routes>
         </Dashboard>
