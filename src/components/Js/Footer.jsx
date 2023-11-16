@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer id="contact" className="bg-slate-700 text-white font-['Inter']" style={{ backgroundColor: '#273A5C' }}>
             <div className= "flex flex-col mx-auto w-full p-4 py-6 lg:py-8">
-                <div className="flex lg:flex-row lg:justify-between items-center">
+                <div className="flex flex-col lg:flex-row lg:justify-between items-center">
                     
                     {/* Social Media Icons */}
                     <div  class="lg:w-1/4 text-center lg:text-right mb-4 lg:mb-0 flex flex-col items-center lg:items-start lg:ml-10">
