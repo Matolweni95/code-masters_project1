@@ -4,8 +4,9 @@ import '../css/Footer.css';
 const Footer = () => {
     return (
         <footer id="contact" className="bg-slate-700 text-white font-['Inter']" style={{ backgroundColor: '#273A5C' }}>
-            <div className= "mx-auto w-full p-4 py-6 lg:py-8">
-                <div className="flex flex-col lg:flex-row lg:justify-between items-center">
+            <div className= "flex flex-col mx-auto w-full p-4 py-6 lg:py-8">
+                <div className="flex lg:flex-row lg:justify-between items-center">
+                    
                     {/* Social Media Icons */}
                     <div  class="lg:w-1/4 text-center lg:text-right mb-4 lg:mb-0 flex flex-col items-center lg:items-start lg:ml-10">
                         <p class="text-lg lg:text-base lg:ml-11">FOLLOW US</p>
@@ -84,7 +85,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-6 lg:w-1/2 lg:mt-3 mx-auto w-full border-b-2 border-white"></div>
+                <div className="mt-6 lg:w-full lg:mt-3 mx-auto w-full border-b-2 border-white"></div>
 
 
                 <div className="text-sm lg:text-xs flex justify-center items-center gap-1 mt-4">
