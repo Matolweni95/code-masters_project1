@@ -19,6 +19,9 @@ import AdminDashboard from './components/Js/AdminDashboard';
 import Gallerys from './components/Js/Gallery';
 import ContentDashboard from './components/Js/ContentDashboard';
 import ContactForm from './components/Js/ContactForm';
+import Users from "./components/Js/Users"; 
+import EditUser from "./components/Js/EditUser";
+import AddUser from "./components/Js/AddUser"; // Import AddUser component
 
 
 
@@ -46,6 +49,10 @@ function App() {
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/gallerys" element={<Gallerys />} />
               <Route path="/contact" element={<ContactForm />} />
+              <Route path= "/users" element={<Users />}/>
+              <Route path= "/edituser/:id" element={<EditUser />}/>
+              <Route path= "/adduser" element={<AddUser />} />
+        
             </Route>
           </Routes>
         </Dashboard>
