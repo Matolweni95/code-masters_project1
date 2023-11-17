@@ -27,7 +27,7 @@ function ContactForm() {
     };
 
     return (
-        <section className='contact' id='contact'>
+        <section className=' d-flex justify-content-center align-items-center flex-column contact' id='contact'>
             <div className="contacts">
                 <h2 className="contacts">CONTACT</h2>
                 <form onSubmit={handleSubmit}>
@@ -90,7 +90,9 @@ function ContactForm() {
                             onChange={handleChange}
                         />
                     </div>
-                    <button className="contacts" type="submit">SAVE CHANGES</button>
+                    <div className="contact-btn__container">
+                        <button className="contacts" type="submit">SAVE CHANGES</button>
+                    </div>
                 </form>
             </div>
         </section>
