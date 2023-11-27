@@ -3,9 +3,10 @@ import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { Typography, Avatar, IconButton, Tooltip } from "@material-tailwind/react";
 import axios from "axios";
 import { Link, useNavigate} from "react-router-dom";
+import '../css/Footer.css';
 
 const placeholderImage = 'https://images.squauserpace-cdn.com/content/v1/5de1f65b98e1587c6356b434/1597215557716-ZIAT4P7GRV3XHZ4XM848/team-placeholder.png';
-
+const TABLE_HEAD = ["Full Names", "Email", "Role", "Action"]
 const Users = () => {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
@@ -47,7 +48,10 @@ const Users = () => {
                 Users
               </Typography>
             </div>
-            <Link to="/adduser" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+            {/* <Link to="/adduser" className="bg-blue-500 text-black px-4 py-2 rounded-md">
+                Add User
+            </Link> */}
+            <Link to="/adduser" className=" bg-blue text-black px-4 py-2 rounded-md" style={{ backgroundColor: '#D9D9D9' }}>
                 Add User
             </Link>
 
@@ -55,45 +59,20 @@ const Users = () => {
         </div>
 
         <div className="px-0">
-          <table className="mt-4 w-full min-w-max table-auto text-left">
+          <table className="mt-4 w-full min-w-max table-auto text-left" style={{ backgroundColor: '#D9D9D9' }}>
             <thead>
               <tr>
-                <th className="border-y p-4">
-                  <Typography
-                    variant="small"
-                    color="black"
-                    className="font-normal text-black leading-none opacity-70"
-                  >
-                    Full Name
-                  </Typography>
-                </th>
-                <th className="border-y p-4">
-                  <Typography
-                    variant="small"
-                    color="black"
-                    className="font-normal leading-none opacity-70"
-                  >
-                    Email
-                  </Typography>
-                </th>
-                <th className="border-y p-4">
-                  <Typography
-                    variant="small"
-                    color="black"
-                    className="font-normal leading-none opacity-70"
-                  >
-                    Role
-                  </Typography>
-                </th>
-                <th className="border-y p-4">
-                  <Typography
-                    variant="small"
-                    color="black"
-                    className="font-normal leading-none opacity-70"
-                  >
-                    Action
-                  </Typography>
-                </th>
+              {TABLE_HEAD.map((head) => (
+              <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-normal leading-none opacity-70"
+                >
+                  {head}
+                </Typography>
+              </th>
+            ))}
               </tr>
             </thead>
 

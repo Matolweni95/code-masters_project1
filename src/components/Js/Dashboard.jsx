@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../css/Dashboard.css'
 import avatar from '../images/IMG_8375.JPG';
 import { Link, useNavigate } from 'react-router-dom';
+import DropDownMenu from './ProfileDropdown';
 
 const Dashboard = ({ children }) => {
   const [isSidebarActive, setSidebarActive] = useState(true);
@@ -113,13 +114,18 @@ const Dashboard = ({ children }) => {
                 <div className='bar'></div>
             </button>
 
-            <div className='profile d-flex align-items-center justify-content-center'>
-              <img className="avatar" src={avatar} />
+            <DropDownMenu/>
+
+            {/* <div className='profile d-flex align-items-center justify-content-center'>
+              <img className="avatar"
+               src={avatar} />
+               <img src="http://www.stedesign.com/ste.png" alt="User Avatar" />
+               <span aria-hidden="true"></span>
               <div className="type">
                 <p className='profile-text'>{user}</p>
                 <p className='profile-text'>{type}</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </nav>
         <div className='nav-container pl-9 pt-3'>

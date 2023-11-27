@@ -1,6 +1,6 @@
 export const content = [
   './pages/**/*.{html,js}',
-  './components/**/*.{html,js}',
+  './components/**/*.{html,jsx,tsx}',
   "./src/**/*.{js,jsx,ts,tsx}",
 ];
 export const theme = {

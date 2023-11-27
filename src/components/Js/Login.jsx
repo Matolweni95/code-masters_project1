@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import '../css/login.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [users, SetUsers] = useState([]);
+  // const [users, SetUsers] = useState([]);
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
@@ -34,7 +34,7 @@ const Login = () => {
         }
 
         if(localStorage.getItem('userId') != null){
-          if(localStorage.getItem('userType') == "Creator"){
+          if(localStorage.getItem('userType') === "Creator"){
             navigate('/contentcreator')
           } else {
             navigate('/dashboard')
@@ -44,7 +44,7 @@ const Login = () => {
 
   useEffect (() => {
     if(localStorage.getItem('userId') != null){
-      if(localStorage.getItem('userType') == "Creator"){
+      if(localStorage.getItem('userType') === "Creator"){
         navigate('/contentcreator')
       } else {
         navigate('/dashboard')
