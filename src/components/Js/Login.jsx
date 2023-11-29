@@ -13,33 +13,28 @@ const Login = () => {
 
   const handleSignin = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8080/api/', {
+        const response = await fetch('http://localhost:8080/api/auth/login', {
           method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, password }),
-        });
+            body: JSON.stringify({email: email, password: password})
+            ,
+          })
 
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            if(data.successful) {
-              localStorage.setItem('userType', data.type);
-              localStorage.setItem('userId', data.userId);
-              localStorage.setItem('username', data.name);
-            }
-        } else {
-           console.log("not ok")
-        }
-
-        if(localStorage.getItem('userId') != null){
-          if(localStorage.getItem('userType') == "Creator"){
-            navigate('/contentcreator')
-          } else {
-            navigate('/dashboard')
-          }
-        }
+        .then((res) => {
+          console.log(res.status);
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data); // Log the response body for more details
+          // if (res.ok) {
+          //   sessionStorage.setItem("token", data.jwtCookie.value);
+          //   if (data.jwtCookie) navigate("/portal");
+          // } else {
+          //   // Handle error cases
+          // }
+        })
   };
 
   useEffect (() => {

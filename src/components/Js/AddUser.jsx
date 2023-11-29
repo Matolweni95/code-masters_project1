@@ -36,7 +36,7 @@ const AddUser = () => {
           <form onSubmit={(e) => onSubmit(e)} className="p-4">
             <AvatarUploader   initialValue={user.avatar} onUpload={onUpload}/>
 
-            <div className="mb-4 space-y-4">
+            <div className="mb-4 space-y-4 mt-0">
               <Input
                 size="md"
                 type="text"

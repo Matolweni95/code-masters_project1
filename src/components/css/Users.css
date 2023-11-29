@@ -1,0 +1,15 @@
+th {
+    background-color: #D9D9D9 !important;
+}
+
+table, td, th {
+    border: none !important;
+}
+
+.add-btn {
+    background-color: #D9D9D9 !important;
+}
+
+.add-text {
+    color: black !important;
+}

@@ -3,6 +3,7 @@ import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { Typography, Avatar, IconButton, Tooltip } from "@material-tailwind/react";
 import axios from "axios";
 import { Link, useNavigate} from "react-router-dom";
+import '../css/Users.css'
 
 const placeholderImage = 'https://images.squauserpace-cdn.com/content/v1/5de1f65b98e1587c6356b434/1597215557716-ZIAT4P7GRV3XHZ4XM848/team-placeholder.png';
 
@@ -47,7 +48,7 @@ const Users = () => {
                 Users
               </Typography>
             </div>
-            <Link to="/adduser" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+            <Link to="*/../adduser" className="add-btn bg-blue-500 opacity-70 px-4 py-2 rounded-md">
                 Add User
             </Link>
 
