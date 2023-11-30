@@ -10,8 +10,8 @@ const EditUser = () => {
   const [user, setUser] = useState({
     names: "",
     emailId: "",
-    designation: "",
-    password: "",
+    role: "",
+    avatarURL: "",
   });
 
   useEffect(() => {
@@ -20,16 +20,16 @@ const EditUser = () => {
 
   const fetchUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:8080/users/getAll/${id}`);
+      const result = await axios.get(`http://localhost:8080/users/user/${id}`);
       const userData = result.data;
 
       setUser({
         names: userData.names,
         emailId: userData.emailId,
-        designation: userData.designation,
-        password: userData.password,
+        role: userData.role,
+        avatarURL: userData.avatarURL,
       });
-    } catch (error) {
+    } catch (error) { 
       console.error('Error fetching user details:', error);
     }
   };
@@ -42,7 +42,7 @@ const EditUser = () => {
   const handleAvatarUpload = (avatarUrl) => {
     setUser({
       ...user,
-      avatar: avatarUrl,
+      avatarURL: avatarUrl,
     });
   };
 
@@ -85,19 +85,19 @@ const EditUser = () => {
               />
               <Input
                 size="md"
-                label="Designation"
-                name="designation"
-                value={user.designation}
+                label="role"
+                name="role"
+                value={user.role}
                 onChange={(e) => handleInputChange(e)}
               />
-              <Input
+              {/* <Input
                 size="md"
                 label="Password"
                 name="password"
                 type="password"
                 value={user.password}
                 onChange={(e) => handleInputChange(e)}
-              />
+              /> */}
             </div>
 
             <div className="flex justify-between items-center">

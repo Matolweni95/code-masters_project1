@@ -48,10 +48,7 @@ const Users = () => {
                 Users
               </Typography>
             </div>
-            {/* <Link to="/adduser" className="bg-blue-500 text-black px-4 py-2 rounded-md">
-                Add User
-            </Link> */}
-            <Link to="/adduser" className=" bg-blue text-black px-4 py-2 rounded-md" style={{ backgroundColor: '#D9D9D9' }}>
+            <Link to="*/../adduser" className="text-black px-4 py-2 rounded-md" style={{ backgroundColor: '#D9D9D9' }}>
                 Add User
             </Link>
 
@@ -80,7 +77,8 @@ const Users = () => {
               {users.map((user) => (
                 <tr key={user.id}>
                   <td className="p-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center">
+                      
                       {user.avatar ? (
                         <Tooltip content="Image">
                           <Avatar
@@ -93,7 +91,6 @@ const Users = () => {
                         <Tooltip content="Image">
                           <Avatar
                             src={placeholderImage}
-                            alt="Placeholder"
                             size="sm"
                           />
                         </Tooltip>
@@ -127,26 +124,22 @@ const Users = () => {
                       color="blue-gray"
                       className="font-normal"
                     >
-                      {user.designation}
+                      {user.role}
                     </Typography>
                   </td>
                   <td className="p-4">
+            
                     <Tooltip content="Delete">
                       <IconButton
-                        variant="text"
-                        onClick={() => handleDelete(user.id)}
+                        variant="text" onClick={() => handleDelete(user.id)}
                       >
                         <TrashIcon className="h-4 w-4" />
                       </IconButton>
                     </Tooltip>
+                    
                     <Tooltip content="Edit">
-                      {/* <Link to={`/edituser/${user.id}`}> */}
-                        {/* <IconButton variant="text">
-                          <PencilIcon className="h-4 w-4" />
-                        </IconButton> */}
-                      {/* </Link> */}
-
-                      <IconButton variant="text" onClick={() => handleEdit(user.id)}>
+                      <IconButton
+                       variant="text" onClick={() => handleEdit(user.id)}>
                         <PencilIcon className="h-4 w-4" />
                       </IconButton>
                     </Tooltip>

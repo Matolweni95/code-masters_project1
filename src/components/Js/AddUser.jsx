@@ -3,15 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { Card, Input, Button } from "@material-tailwind/react";
 import AvatarUploader from "./AvatarUploader";
 import axios from "axios";
+import '../css/Footer.css';
+// import { theme } from '../path-to-tailwind-config';
 
 const AddUser = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     names: "",
     emailId: "",
-    designation: "",
+    role: "",
     avatar: '',
-    // password: "",
+    password: "",
   });
 
   const onUpload = (avatarUrl) => {
@@ -37,6 +39,7 @@ const AddUser = () => {
             <AvatarUploader   initialValue={user.avatar} onUpload={onUpload}/>
 
             <div className="mb-4 space-y-4">
+
               <Input
                 size="md"
                 type="text"
@@ -50,17 +53,17 @@ const AddUser = () => {
                 size="md"
                 type="email"
                 label="Email"
-                name="emailId"
+                name="email"
                 autoComplete="email"
                 value={user.emailId}
                 onChange={(e) => handleInputChange(e)}
               />
               <Input
                 size="md"
-                label="Designation"
-                name="designation"
+                label="role"
+                name="role"
                 autoComplete="role"
-                value={user.designation}
+                value={user.role}
                 onChange={(e) => handleInputChange(e)}
               />
               <Input
@@ -72,6 +75,7 @@ const AddUser = () => {
                 value={user.password}
                 onChange={(e) => handleInputChange(e)}
               />
+
             </div>
 
             <div className="flex justify-between items-center">

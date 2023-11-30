@@ -49,9 +49,13 @@ function App() {
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/gallerys" element={<Gallerys />} />
               <Route path="/contact" element={<ContactForm />} />
-              <Route path= "/users" element={<Users />}/>
-              <Route path= "/edituser/:id" element={<EditUser />}/>
-              <Route path= "/adduser" element={<AddUser />} />
+              <Route path= "/users//*" element={
+                <Routes>
+                  <Route path= "/*" element={<Users />} />
+                  <Route path= "/adduser" element={<AddUser />} />
+                  <Route path= "/edituser/:id" element={<EditUser />}/>
+                </Routes>
+              }/>
         
             </Route>
           </Routes>
