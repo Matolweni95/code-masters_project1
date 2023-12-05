@@ -33,7 +33,7 @@ a:focus {
 
 .btn {
   border: none;
-  padding-left: 28px;
+  /* padding-left: 28px; */
   background-color: transparent;
 }
 

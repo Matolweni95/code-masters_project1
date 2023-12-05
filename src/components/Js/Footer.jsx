@@ -8,9 +8,9 @@ const Footer = () => {
                 <div className="flex flex-col lg:flex-row lg:justify-between items-center">
                     
                     {/* Social Media Icons */}
-                    <div  class="lg:w-1/4 text-center lg:text-right mb-4 lg:mb-0 flex flex-col items-center lg:items-start lg:ml-10">
-                        <p class="text-lg lg:text-base lg:ml-11">FOLLOW US</p>
-                        <p class="text-sm lg:text-xs mt-2 lg:ml-11">Yes, we are social</p>
+                    <div  className="lg:w-1/4 text-center lg:text-right mb-4 lg:mb-0 flex flex-col items-center lg:items-start lg:ml-10">
+                        <p className="text-lg lg:text-base lg:ml-11">FOLLOW US</p>
+                        <p className="text-sm lg:text-xs mt-2 lg:ml-11">Yes, we are social</p>
                         <div className="mt-2 flex gap-4 lg:ml-11 "> 
                             {/* Facebook icon */}
                             <svg

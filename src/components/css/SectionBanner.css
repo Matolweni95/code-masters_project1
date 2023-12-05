@@ -1,0 +1,30 @@
+.sectionBanner {
+    height: 35vh;
+    margin-bottom: 150px;
+}
+
+.sectionBanner__container  {
+    background-image: url(../images/IMG_8375.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+.sectionBanner__container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: var(--background_overlay);
+}
+
+.sectionBanner__headerContainer {
+    position: relative;
+    height: 50%;
+}
+
+.sectionBanner__header {
+    color: var(--text_color);
+}

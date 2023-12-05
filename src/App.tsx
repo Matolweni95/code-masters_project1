@@ -35,7 +35,7 @@ function App() {
         <Route path="/blog/id" element={<BlogContent />} />
         <Route path="/login" element={<Login />} />
         
-        <Route path="/dashboard/*" element={
+        <Route path="/admin/*" element={
         <Dashboard>
           <Routes>
             <Route>

@@ -3,39 +3,63 @@ import '../css/login.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [users, SetUsers] = useState([]);
+  const [role, setRole] = useState('');
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
-        e.preventDefault();
-        const response = await fetch('http://localhost:8080/api/auth/login', {
-          method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({email: email, password: password})
-            ,
-          })
+    e.preventDefault();
+  
+    try {
+      const response = await fetch('http://localhost:8080/api/v1/auth/authenticate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log(data);
+  
+      const token = data.token;
+  
+      localStorage.setItem('token', token);
 
-        .then((res) => {
-          console.log(res.status);
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data); // Log the response body for more details
-          // if (res.ok) {
-          //   sessionStorage.setItem("token", data.jwtCookie.value);
-          //   if (data.jwtCookie) navigate("/portal");
-          // } else {
-          //   // Handle error cases
-          // }
-        })
+      if (token) {
+        
+        const decodedToken = jwtDecode(token);
+        const userRole = decodedToken.role;
+        console.log(userRole);
+  
+        setRole(userRole);
+
+        if (userRole === 'ADMIN') {
+          navigate('/admin')
+        } else if(userRole === 'USER') {
+          navigate('/contentcreator')
+        }
+        else {
+
+        }
+      }
+  
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
   };
+  
 
   useEffect (() => {
     if(localStorage.getItem('userId') != null){
