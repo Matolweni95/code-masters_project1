@@ -31,7 +31,7 @@ a:focus {
   height: calc(100vh - 70px);
 }
 
-.btn {
+.dash-btn {
   border: none;
   /* padding-left: 28px; */
   background-color: transparent;

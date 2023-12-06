@@ -14,7 +14,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const result = await axios.get("http://localhost:8080/users/getAll");
+        const result = await axios.get("http://localhost:8080/api/v1/users/all");
         setUsers(result.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -103,7 +103,7 @@ const Users = () => {
                 <tr key={user.id}>
                   <td className="p-4">
                     <div className="flex items-center gap-3">
-                      {user.avatar ? (
+                      {/* {user.avatar ? (
                         <Tooltip content="Image">
                           <Avatar
                             src={user.avatar}
@@ -119,7 +119,7 @@ const Users = () => {
                             size="sm"
                           />
                         </Tooltip>
-                      )}
+                      )} */}
 
                       <div className="flex flex-col">
                         <Typography
@@ -127,7 +127,7 @@ const Users = () => {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {user.names}
+                          {user.firstname}
                         </Typography>
                       </div>
                     </div>
@@ -139,7 +139,7 @@ const Users = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {user.emailId}
+                        {user.email}
                       </Typography>
                     </div>
                   </td>
@@ -149,7 +149,7 @@ const Users = () => {
                       color="blue-gray"
                       className="font-normal"
                     >
-                      {user.designation}
+                      {user.role}
                     </Typography>
                   </td>
                   <td className="p-4">

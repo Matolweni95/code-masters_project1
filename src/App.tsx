@@ -50,11 +50,11 @@ function App() {
               <Route path="/gallerys" element={<Gallerys />} />
               <Route path="/contact" element={<ContactForm />} />
               <Route path= "/users//*" element={
-              <Routes>
-                <Route path='/*' element={<Users />} />
-                <Route path= "/edituser/:id" element={<EditUser />}/>
-                <Route path= "/adduser" element={<AddUser />} />
-              </Routes>
+                <Routes>
+                  <Route path='/*' element={<Users />} />
+                  <Route path= "/edituser/:id" element={<EditUser />}/>
+                  <Route path= "/adduser" element={<AddUser />} />
+                </Routes>
               }/>
             </Route>
           </Routes>

@@ -21,7 +21,7 @@ const Dashboard = ({ children }) => {
   const type = localStorage.getItem('userType');
 
   const handleSignout = () => {
-      localStorage.removeItem('userId');
+      localStorage.removeItem('token');
       navigate('/');
     };
 
@@ -34,7 +34,7 @@ const Dashboard = ({ children }) => {
 
         <ul className="list-unstyled components">
           <li className="active">
-            <Link to="/dashboard">
+            <Link to="/admin">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M13.3333 24V10.6667H24V24H13.3333ZM0 13.3333V0H10.6667V13.3333H0ZM8 10.6667V2.66667H2.66667V10.6667H8ZM0 24V16H10.6667V24H0ZM2.66667 21.3333H8V18.6667H2.66667V21.3333ZM16 21.3333H21.3333V13.3333H16V21.3333ZM13.3333 0H24V8H13.3333V0ZM16 2.66667V5.33333H21.3333V2.66667H16Z" fill="white"/>
             </svg>
@@ -106,7 +106,7 @@ const Dashboard = ({ children }) => {
       <div id="content" style={contentStyle}>
         <nav className="navbar navbar-expand-lg navbar-light bg-light" >
           <div className="container-fluid">
-            <button type="button" onClick={toggleSidebar} className="btn text-sidebar">
+            <button type="button" onClick={toggleSidebar} className="dash-btn text-sidebar">
               <i className={`fas fa-align-left ${isSidebarActive ? 'active' : ''}`}></i>
                 <div className='bar'></div>
                 <div className='bar'></div>
