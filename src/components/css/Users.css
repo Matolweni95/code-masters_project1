@@ -13,3 +13,20 @@ table, td, th {
 .add-text {
     color: black !important;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul > li > a {
+    padding: 23px;
+}
+
+.pagination__link--active {
+    color: #fff;
+    background-color: #273A5C;
+}

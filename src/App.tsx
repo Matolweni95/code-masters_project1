@@ -22,6 +22,7 @@ import ContactForm from './components/Js/ContactForm';
 import Users from "./components/Js/Users"; 
 import EditUser from "./components/Js/EditUser";
 import AddUser from "./components/Js/AddUser"; // Import AddUser component
+import Profile from './components/Js/Profile';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Routes>
             <Route>
               <Route path="/" element={<AdminDashboard />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/stories//*" element={
                 <Routes>
                   <Route path='/*' element={<Stories />} />

@@ -3,16 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import AvatarUploader from "./AvatarUploader";
 import axios from "axios";
 
+const generateRandomPassword = () => {
+  const length = 12;
+  const charset =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=";
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  return password;
+};
+
 const AddUser = () => {
   const navigate = useNavigate();
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [role, setRole] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState("");
 
   const onUpload = (avatarUrl) => {
-    // Handle avatar upload logic if needed
+    // Handle avatar 
   };
 
   const handleInputChange = (e) => {
@@ -38,21 +51,50 @@ const AddUser = () => {
     }
   };
 
+  const handleGeneratePassword = () => {
+    const generatedPassword = generateRandomPassword();
+    setPassword(generatedPassword);
+  };
+
+  const validateForm = () => {
+    if (!firstname || !lastname || !email || !role || !password) {
+      setFormError("Please fill in all fields");
+      return false;
+    }
+    setFormError("");
+    return true;
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     try {
-      // Send the user data to the server
-      await axios.post("http://localhost:8080/api/v1/auth/register", {
-        firstname,
-        lastname,
-        email,
-        role,
-        password,
-      });
-      // Redirect after successful registration
-      navigate("../");
+      const response = await axios.post(
+        "http://localhost:8080/api/v1/auth/register",
+        {
+          firstname,
+          lastname,
+          email,
+          role,
+          password,
+        }
+      );
+
+      if (response.status === 200) {
+        await axios.post("http://localhost:8080/api/v1/auth/send-login-details", {
+          email,
+          password,
+        });
+
+        navigate("../");
+      } else {
+        console.error("Registration failed:", response.data.message);
+      }
     } catch (error) {
-      // Handle errors, e.g., display an error message
       console.error("Registration failed:", error.message);
     }
   };
@@ -109,7 +151,9 @@ const AddUser = () => {
                 value={role}
                 onChange={(e) => handleInputChange(e)}
               >
-                <option value="" disabled>Select Designation</option>
+                <option value="" disabled>
+                  Select Designation
+                </option>
                 <option value="ADMIN">ADMIN</option>
                 <option value="USER">USER</option>
               </select>
@@ -125,7 +169,16 @@ const AddUser = () => {
                 value={password}
                 onChange={(e) => handleInputChange(e)}
               />
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={handleGeneratePassword}
+              >
+                Generate Password
+              </button>
             </div>
+
+            {formError && <p className="text-danger">{formError}</p>}
 
             <div className="d-flex justify-content-between align-items-center">
               <button type="submit" className="btn btn-primary">
