@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AvatarUploader from "./AvatarUploader";
 import axios from "axios";
+import db from "../Config/Firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const generateRandomPassword = () => {
   const length = 12;
