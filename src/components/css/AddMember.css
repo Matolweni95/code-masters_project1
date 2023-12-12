@@ -1,0 +1,45 @@
+/* styles.css */
+
+/* Card Styles */
+.card {
+    background-color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  /* Input Styles */
+  .input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Submit Button Styles */
+  .submit-button {
+    background-color: #3490dc;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  /* Cancel Link Styles */
+  .cancel-link {
+    background-color: #718096;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .cancel-link:hover {
+    background-color: #4a5568;
+  }
+  
