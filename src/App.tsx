@@ -15,6 +15,14 @@ import Stories from './components/Js/Stories';
 import Login from './components/Js/Login';
 import Edit from './components/Js/Edit';
 import ContentCreatorNav from './components/Js/ContentCreatorNav';
+import AdminDashboard from './components/Js/AdminDashboard';
+import Gallerys from './components/Js/Gallery';
+import ContentDashboard from './components/Js/ContentDashboard';
+import ContactForm from './components/Js/ContactForm';
+import Users from "./components/Js/Users"; 
+import EditUser from "./components/Js/EditUser";
+import AddUser from "./components/Js/AddUser"; // Import AddUser component
+import Profile from './components/Js/Profile';
 
 
 
@@ -28,26 +36,45 @@ function App() {
         <Route path="/blog/id" element={<BlogContent />} />
         <Route path="/login" element={<Login />} />
         
-        <Route path="/dashboard/*" element={
+        <Route path="/admin/*" element={
         <Dashboard>
           <Routes>
             <Route>
-              <Route path="/" element={<Dash />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/stories" element={<Stories />} />
+              <Route path="/" element={<AdminDashboard />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/stories//*" element={
+                <Routes>
+                  <Route path='/*' element={<Stories />} />
+                  <Route path='/create' element = {<Create />} />
+                </Routes>
+              } />
               <Route path="/edit/:id" element={<Edit />} />
+              <Route path="/gallerys" element={<Gallerys />} />
+              <Route path="/contact" element={<ContactForm />} />
+              <Route path= "/users//*" element={
+                <Routes>
+                  <Route path='/*' element={<Users />} />
+                  <Route path= "/edituser/:id" element={<EditUser />}/>
+                  <Route path= "/adduser" element={<AddUser />} />
+                </Routes>
+              }/>
             </Route>
           </Routes>
         </Dashboard>
         } />
 
-        <Route path="/conentcreator/*" element={
+        <Route path="/contentcreator/*" element={
         <ContentCreatorNav>
           <Routes>
             <Route>
-              <Route path="/" element={<Dash />} />
-              <Route path="/blog" element={<Create />} />
-              <Route path="/gallery" element={<Stories />} />
+              <Route path="/" element={<ContentDashboard />} />
+              <Route path="/stories//*" element={
+                <Routes>
+                  <Route path='/*' element={<Stories />} />
+                  <Route path='/create' element = {<Create />} />
+                </Routes>
+              } />
+              <Route path="/gallerys" element={<Gallerys />} />
             </Route>
           </Routes>
         </ContentCreatorNav>

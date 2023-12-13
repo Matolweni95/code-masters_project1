@@ -79,14 +79,16 @@ function Stories() {
         <div className="label">
           <div className="text-wrapper">OUR STORIES</div>
         </div>
+      </div>
 
-        <div className="frame1">
-          <Link to={"/dashboard/create"} className="text">
+      <div className="create-container">
+      <div className="frame1">
+          <Link to={"../create"} className="text">
             CREATE POST
           </Link>
         </div>
       </div>
-
+      
       <div className="frame-container">
         {currentStories.map((story) => (
           <div key={story.id} className="frame">

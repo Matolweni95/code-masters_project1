@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/BlogStyle.css";
 import imageOne from "../images/imageOne.png";
+import SectionBanner from "./SectionBanner";
 
 const BlogCards = () => {
   const containerRef = useRef(null);
@@ -136,29 +137,35 @@ const BlogCards = () => {
 
   return (
     //displayed cards below
-    <div>
-      <div className="containers" ref={containerRef}>
-        <div className="grid-container">
+    <div className="blogStories">
+      <SectionBanner />
+      <div className="blogStories__container" ref={containerRef}>
+        <div className="blogStories__cards d-flex flex-wrap justify-content-around">
           {currentPageData.map((article) => (
-            <div key={article.id} className="grid-item">
-              <div className="card">
-                <div className="image">
-                  <img src={imageOne} alt="Image One" />
+            <div key={article.id} className="blogStories__card">
+              <div className="blogStories_cardItem">
+                <div className="cardItem_imageContainer">
+                  <img className="blogStoriesCard__image" src={imageOne} alt="Image One" />
                 </div>
-                <h2>{article.title}</h2>
-                <hr />
-                <p>{article.content}</p>
-
-                <Link to={`/blog/${article.id}`}>
-                  <button>READ MORE</button>
+                <div className="blogStoriesText__section d-flex flex-column align-items-center">
+                  <div className="blogStoriesCard__headerContainer">
+                    <h2 className="blogStoriesCard__header">{article.title}</h2>
+                  </div>
+                  <div className="blogStoriesCard__line"></div>
+                  <div className="blogStoriesCard__text">
+                    <p>{article.content}</p>
+                  </div>
+                  <Link to={`/blog/${article.id}`}>
+                  <button className="blogStories-btn">READ MORE</button>
                 </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
       {/* The pagination below*/}
-      <div className="pagination">
+      <div className="pagination d-flex justify-content-center mt-4">
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
@@ -166,15 +173,19 @@ const BlogCards = () => {
         >
           Prev
         </button>
+        
         {pagesArray.map((page) => (
+          <div className={page === currentPage ? "active-click" : ""}>
           <button
             key={page}
             onClick={() => scrollToPage(page)}
-            className={page === currentPage ? "active" : ""}
+            className="page-btn"
           >
             {page}
           </button>
+          </div>
         ))}
+        
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={currentPage === totalPages}

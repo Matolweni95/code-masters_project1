@@ -1,0 +1,12 @@
+.card-container {
+    background-color: white;
+    width: fit-content;
+    padding: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-btn {
+    background-color: var(--dash_background);
+    padding: var(--button-padding);
+    color: white;
+}

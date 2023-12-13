@@ -1,36 +1,10 @@
 .post-title {
-  width: 250px;
-  height: 44px;
-  top: 133px;
-  left: 363px;
-  font: inter;
-  font-weight: 700;
-  line-height: 43.57px;
-  line-height: 1.5;
-  font-family: Inter;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 44px;
-  text-align: left;
-
-  margin-bottom: 20px; /* Add margin to create space below the title */
-}
-.add-image-button {
-  margin: right 10px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-/* Style for the input fields */
-/* Define styles for the form-group class */
-.form-group {
-  margin: 10px; /* Add spacing around the form group */
-}
-
-/* Define styles for the input-field class */
-.input-field {
-  width: 890px;
-  height: 47px;
-  top: 295px;
-  left: 358px;
+.form-control {
+  margin-bottom: 20px;
   background-color: #d9d9d9;
     border: none; /* Add a border to the input field */
     font-size: 16px; /* Set the font size */

@@ -31,18 +31,14 @@
     padding-bottom: 10px;
 }
 
-select, .aps-percent {
-    border: none !important;
+.btn {
+    padding-left: none !important;
 }
 
 th {
     background-color: white !important;
 }
 
-
-th, td {
-    border: 1px solid black  !important;
-}
 
 .calculate-btn {
     margin-top: 52px;
@@ -51,4 +47,14 @@ th, td {
 
 .calculate-btn, th, .aps-line {
     background-color: var(--background) !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
