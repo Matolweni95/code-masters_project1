@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../css/Contact.css';
 
 function ContactForm() {
@@ -11,6 +12,9 @@ function ContactForm() {
         tiktokLink: '',
     });
 
+    const [ contactList, setContactList] = useState([]);
+
+  
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -19,12 +23,20 @@ function ContactForm() {
         });
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // You can handle form submission logic here
-        // For now, let's just log the form data
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+        
+                const response = await axios.post('http://localhost:8080/api/contact/save', formData);
+                setContactList(response.data);
+            
+        } catch (error) {
+            console.error("Error saving contact:", error);
+        }
         console.log(formData);
     };
+
 
     return (
         <section className=' d-flex justify-content-center align-items-center flex-column contact' id='contact'>
