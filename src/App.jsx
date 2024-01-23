@@ -24,6 +24,7 @@ import EditUser from "./components/Js/EditUser";
 import AddUser from "./components/Js/AddUser"; // Import AddUser component
 import Profile from './components/Js/Profile';
 import ResetComponent from './components/Js/ResetComponent';
+import Aboutupdate from './components/Js/AboutUpdate';
 
 export const MyContext = createContext({});
 
@@ -64,6 +65,7 @@ function App() {
               } />
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/gallerys" element={<Gallerys />} />
+              <Route path="/about" element={<Aboutupdate />} />
               <Route path="/contact" element={<ContactForm />} />
               <Route path= "/users//*" element={
                 <Routes>
