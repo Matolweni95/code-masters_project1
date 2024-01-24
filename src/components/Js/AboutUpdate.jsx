@@ -137,41 +137,48 @@ useEffect(() => {
     window.location.reload();
   };
 
+
   const editPicture = async (id, url, category) => {
-
+    console.log(id + url + category);
     try {
-      const imageRef = ref(storage, url);
+      const imageRef = ref(storage, url); 
       await getDownloadURL(imageRef);
-      console.log("exist")
-      if(image){
+      console.log("exist");
+      
+      if (image) {
         const storageRef = ref(storage, 'aboutImg/' + image.name);
-      
-    try {
-    
-      await uploadBytes(storageRef, image);
-      const downloadUrl = await getDownloadURL(storageRef);
-      console.log("Image")
-      console.log(downloadUrl)
-      
-      axios.put(`http://localhost:8080/api/v1/about/updateImage/${id}`,{imageUrl:downloadUrl, category:category})
-
-      console.log('Image uploaded successfully:', downloadUrl);
-    } catch (error) {
-      
-      console.error('Error uploading image:', error);
-    }
+  
+        try {
+          await uploadBytes(storageRef, image);
+          const downloadUrl = await getDownloadURL(storageRef);
+          console.log("Image");
+          console.log(downloadUrl);
+  
+          axios.put(`http://localhost:8080/api/v1/about/updateImage/${id}`, {
+            imageUrl: downloadUrl,
+            category: category,
+            admin_id: userId
+          });
+  
+          console.log('Image uploaded successfully:', downloadUrl);
+          window.location.reload();
+        } catch (error) {
+          console.error('Error uploading image:', error);
+        }
       }
-
+  
       return true;
-
+  
     } catch (error) {
-
-      console.log(error)
+      console.log(error);
       return false;
     }
-    
-    window.location.reload();
-  };;
+  
+   
+  };
+  
+  
+  
 
   const handleAddData = async () => {
     axios.post(`http://localhost:8080/api/v1/about/saveAbout`,{about_us:updateVal.about_us,mission:updateVal.mission, vision:updateVal.vision,admin_id: userId})
@@ -193,7 +200,7 @@ useEffect(() => {
           <img src={missionImg.imageUrl} alt="" width={300} /> 
           <input type="file" multiple onChange={handleChange} />
              
-             <button onClick={() => editPicture(image.id, image.imageUrl, image.category)} className="bg-blue-900 h-8 w-24 mt-3 text-white">Update</button>
+             <button onClick={() => editPicture(missionImg.id, missionImg.imageUrl, missionImg.category)} className="bg-blue-900 h-8 w-24 mt-3 text-white">Update</button>
       
         </div>:
           <div class="w-30 m-10">
@@ -214,7 +221,7 @@ useEffect(() => {
           <p className="text-blue-900 font-bold text-25 font-300">{visionImg.category}</p>
           <img src={visionImg.imageUrl} alt="" width={300} /> 
           <input type="file" multiple onChange={handleChange} />
-             <button onClick={() => editPicture(image.id, image.imageUrl, image.category)} className="bg-blue-900 h-8 w-24 mt-3 text-white">Update</button>
+             <button onClick={() => editPicture(visionImg.id, visionImg.imageUrl, visionImg.category)} className="bg-blue-900 h-8 w-24 mt-3 text-white">Update</button>
       
         </div>
         :
