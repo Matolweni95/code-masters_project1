@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import Footer from './components/Js/Footer';
 import './index.css'
 import Landing from './pages/Landing';
@@ -23,11 +23,21 @@ import Users from "./components/Js/Users";
 import EditUser from "./components/Js/EditUser";
 import AddUser from "./components/Js/AddUser"; // Import AddUser component
 import Profile from './components/Js/Profile';
+import ResetComponent from './components/Js/ResetComponent';
+import Aboutupdate from './components/Js/AboutUpdate';
 
-
+export const MyContext = createContext({});
 
 function App() {
+
+  const [contextValue, setContextValue] = useState(1);
+  
+  const updateContextValue = (newValue) => {
+    setContextValue(newValue);
+  };
+
   return (
+    <MyContext.Provider value={{contextValue, updateContextValue}}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -41,7 +51,12 @@ function App() {
           <Routes>
             <Route>
               <Route path="/" element={<AdminDashboard />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile//*" element={
+                <Routes>
+                  <Route path='/' element={<Profile />} />
+                  <Route path='/reset-password' element={<ResetComponent />} />
+                </Routes>
+              }/>
               <Route path="/stories//*" element={
                 <Routes>
                   <Route path='/*' element={<Stories />} />
@@ -50,6 +65,7 @@ function App() {
               } />
               <Route path="/edit/:id" element={<Edit />} />
               <Route path="/gallerys" element={<Gallerys />} />
+              <Route path="/about" element={<Aboutupdate />} />
               <Route path="/contact" element={<ContactForm />} />
               <Route path= "/users//*" element={
                 <Routes>
@@ -82,6 +98,7 @@ function App() {
 
       </Routes>
       </BrowserRouter>
+      </MyContext.Provider>
   );
   
 }

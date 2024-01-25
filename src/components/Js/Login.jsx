@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import { MyContext } from "../../App";
+import { useContext } from "react";
 
 
 const Login = () => {
@@ -13,6 +15,7 @@ const Login = () => {
   const [users, SetUsers] = useState([]);
   const [role, setRole] = useState('');
   const navigate = useNavigate();
+  const { contextValue, updateContextValue } = useContext(MyContext);
 
   const handleSignin = async (e) => {
     e.preventDefault();
@@ -42,7 +45,7 @@ const Login = () => {
         const decodedToken = jwtDecode(token);
         const userRole = decodedToken.role;
         console.log(userRole);
-  
+        updateContextValue(decodedToken.id);
         setRole(userRole);
 
         if (userRole === 'ADMIN') {
