@@ -138,7 +138,7 @@ const Aps: React.FC = () => {
     <section className="aps d-flex flex-column align-items-center justify-content-center" id="aps">
       <div className="container aps-container">
         <div className="aps-heading d-flex flex-column align-items-center justify-content-center">
-          <h1 className="aps-header">APS SCORE CALCULATOR</h1>
+          <h1 className="aps-header text-center">APS SCORE CALCULATOR</h1>
           <div className="aps-line"></div>
         </div>
 
