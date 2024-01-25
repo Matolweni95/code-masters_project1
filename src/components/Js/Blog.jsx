@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import db from "../Config/Firebase-config";
 import '../css/Blog.css';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import axios from 'axios';
 import placeholder from '../images/IMG_8206.JPG';
 import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
+
+  const [stories, setStories] = useState([]);
+  const containerRef = useRef(null);
+  
+
+  const fetchStories = async () => {
+
+
+    const result =await axios.get("http://localhost:8080/api/v1/posts/posts");
+    setStories(result.data);
+    console.log(result.data);
+   
+
+
+};
+useEffect(() => {
+
+  fetchStories();
+}, []);
+
   
   const navigate = useNavigate();
 
+  const currentStories = stories.slice(0, 3);
   return (
     <section className='blog' id='blog'>
       <div className='blog-container d-flex flex-column'>
@@ -23,52 +47,26 @@ const Blog = () => {
         </div>
 
         <div className='card-section'>
-          <div className='card-section__conatiner d-flex justify-content-around flex-wrap'>
 
-            <div className='cards'>
-              <img className='card-image' src={placeholder}/>
-              <div className='card-text d-flex flex-column align-items-center'>
+          <div className='card-section__conatiner d-flex justify-center gap-[100px] flex-wrap'>
+          {currentStories.map((story) => (
+            <div key={story.id} className='cards'>
+            
+             
+                <img className='card-image' src={story.picture}/><div className='card-text d-flex flex-column align-items-center'>
                 <p className='cards-header'>
-                How I retain and remember what I study
+                {story.title}
                 </p>
                 <div className='card-line'></div>
-                <p className='card-desc'>
-                Lorem ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.Lorem 
-                ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.
+                <p className='card-desc p-2'>
+                {story.body}
                 </p>
-                <button className='card-btn'>READ MORE</button>
+                <button className='card-btn' onClick={()=>navigate('/blog')}>READ MORE</button>
               </div>
+              
             </div>
-
-            <div className='cards'>
-              <img className='card-image' src={placeholder}/>
-              <div className='card-text d-flex flex-column align-items-center'>
-                <p className='cards-header'>
-                How I retain and remember what I study
-                </p>
-                <div className='card-line'></div>
-                <p className='card-desc'>
-                Lorem ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.Lorem 
-                ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.
-                </p>
-                <button className='card-btn'>READ MORE</button>
-              </div>
-            </div>
-
-            <div className='cards'>
-              <img className='card-image' src={placeholder}/>
-              <div className='card-text d-flex flex-column align-items-center'>
-                <p className='cards-header'>
-                How I retain and remember what I study
-                </p>
-                <div className='card-line'></div>
-                <p className='card-desc'>
-                Lorem ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.Lorem 
-                ipsum dolor sit amet consectetur. Tincidunt sit et urna sit malesuada.
-                </p>
-                <button className='card-btn'>READ MORE</button>
-              </div>
-            </div>
+  ))}
+          
           </div>
           <button className='more' onClick={()=>navigate('/blog')}>READ MORE</button>
         </div>

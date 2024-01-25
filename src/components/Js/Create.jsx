@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import db from "../Config/Firebase-config";
 import { collection, addDoc } from "firebase/firestore";
+import axios from 'axios';
 
 // import "../css/create.css";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function Create() {
+
+  let navigate = useNavigate()
   const initialState = {
     title: "",
     body: "",
@@ -44,24 +47,25 @@ function Create() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      if (data.picture instanceof File) {
-        const imageUrl = await handleImageUpload(data.picture);
 
-        const storiesRef = collection(db, "stories");
-        await addDoc(storiesRef, {
-          title: data.title,
-          body: data.body,
-          picture: imageUrl,
-        });
+    const imageUrl = await handleImageUpload(data.picture);
 
-        setData(initialState);
-      } else {
-        console.error("No image file selected.");
-      }
-    } catch (error) {
-      console.error("Error adding question: ", error);
-    }
+
+    console.log("Posting data:", {
+      title: data.title,
+      body: data.body,
+      picture: imageUrl,
+    });
+
+   
+    await axios.post(`http://localhost:8080/api/v1/posts/post`, {
+      title: data.title,
+      body: data.body,
+      picture: imageUrl,
+    });
+
+    navigate("*/stories");
+
   };
 
   return (
