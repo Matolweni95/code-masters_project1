@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import storage from "../Config/Firebase-config";
 import { getStorage, ref, getDownloadURL, uploadBytes,uploadBytesResumable } from "firebase/storage";
 import { Link } from "react-router-dom";
@@ -58,15 +59,16 @@ useEffect(() => {
       const firstMissionImg = data.find(item => item.category === 'mission');
       const firstVisionImg = data.find(item => item.category === 'vision');
 
-      if (firstMissionImg) {
+      if (!missionImg && firstMissionImg) {
         setMissionImg(firstMissionImg);
       }
 
-      if (firstVisionImg) {
+      if (!visionImg && firstVisionImg) {
         setVisionImg(firstVisionImg);
       }
 
       console.log('Data fetched:', data);
+      console.log(missionImg)
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
@@ -74,23 +76,29 @@ useEffect(() => {
 
   fetchData();
   console.log('Fetch request initiated...');
+ 
 }, []);
 
 useEffect(() => {
 
-  if ((missionImg === null || visionImg === null) && imageData.length > 0) {
+  if (imageData.length > 0) {
    
     const firstMissionImg = imageData.find(item => item.category === 'mission');
     const firstVisionImg = imageData.find(item => item.category === 'vision');
 
-    if (firstMissionImg) {
+
+
+    if (!missionImg && firstMissionImg) {
       setMissionImg(firstMissionImg);
     }
 
-    if (firstVisionImg) {
+    if (!visionImg && firstVisionImg) {
       setVisionImg(firstVisionImg);
     }
+
   }
+  
+console.log(missionImg)
 }, [imageData, missionImg, visionImg]);
 
 
@@ -113,10 +121,11 @@ useEffect(() => {
 
   const handleUpload = async (category) => {
     if (image) {
+      console.log(image)
       const storage = getStorage();
       const storageRef = ref(storage, `aboutImg/${image.name}`);
       const uploadTask = uploadBytesResumable(storageRef, image);
-
+      console.log("did not add")
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -128,13 +137,18 @@ useEffect(() => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
 
            axios.post("http://localhost:8080/api/v1/about/saveImageUrl",{imageUrl:downloadURL, category:category, admin_id:userId})
-
+           
+           Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Successfully added a picture',
+          });
             
           });
         }
       );
     }
-    window.location.reload();
+   
   };
 
 
@@ -182,8 +196,14 @@ useEffect(() => {
 
   const handleAddData = async () => {
     axios.post(`http://localhost:8080/api/v1/about/saveAbout`,{about_us:updateVal.about_us,mission:updateVal.mission, vision:updateVal.vision,admin_id: userId})
- 
-    window.location.reload();
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Successfully added a Texts',
+    }).then(() => {
+      
+      window.location.reload();
+    });
   }
 
   return (
@@ -192,7 +212,7 @@ useEffect(() => {
       <div className="flex flex-wrap m-20 bg-slate-200 w-70">
 
       {
-        visionImg ?
+        missionImg ?
       <div class="w-30 m-10">
        
        
@@ -216,7 +236,7 @@ useEffect(() => {
 }
 
 {
-  missionImg ?
+  visionImg ?
         <div class="w-30 m-10">
           <p className="text-blue-900 font-bold text-25 font-300">{visionImg.category}</p>
           <img src={visionImg.imageUrl} alt="" width={300} /> 

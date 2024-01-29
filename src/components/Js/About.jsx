@@ -61,7 +61,7 @@ const About = () => {
   useEffect(() => {
    
     if ((missionImg === null || visionImg === null) && imageData.length > 0) {
-      // Assuming you want to set the first mission and vision images
+      
       const firstMissionImg = imageData.find(item => item.category === 'mission');
       const firstVisionImg = imageData.find(item => item.category === 'vision');
   
