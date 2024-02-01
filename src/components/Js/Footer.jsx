@@ -6,11 +6,6 @@ const Footer = () => {
 
     const [contact, setContact] = useState(null);
 
-    const headers = {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdG5hbWUiOiJOZW8iLCJyb2xlIjoiQURNSU4iLCJpZCI6MSwibGFzdG5hbWUiOiJNYWdvbGVsYSIsImlhdCI6MTcwNjc3MTc3MSwiZXhwIjoxNzA2ODU4MTcxfQ.j9hyjyWt2UlGX8GfHFMFXHAD-paRM8P0kZ-UH3PFNQg',
-      'Content-Type': 'application/json',
-    };
-  
     useEffect(() => {
       axios
         .get('http://localhost:8080/api/v1/contact/1')
