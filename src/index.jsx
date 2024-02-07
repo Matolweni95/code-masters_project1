@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'font-awesome/css/font-awesome.min.css';
+import { decryptData } from './components/Js/CyptoUtils';
 
 
+const storedContextData = localStorage.getItem('contextData');
+const initialContextData = storedContextData ? decryptData(storedContextData) : {};
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') 
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <App initialContextData={initialContextData} />
   </React.StrictMode>
 );
 

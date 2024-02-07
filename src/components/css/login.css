@@ -9,12 +9,12 @@
     border-radius: 15px;
 }
 
-.login {
+/* .login {
     background-image: url(../images/IMG_8375.JPG);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-}
+} */
 
 .login::before {
     content: "";

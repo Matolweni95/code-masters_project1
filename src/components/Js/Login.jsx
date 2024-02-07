@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { MyContext } from "../../App";
 import { useContext } from "react";
+import '../css/login.css'; 
+import { encryptData } from "./CyptoUtils";
 
 
 const Login = () => {
@@ -15,7 +17,7 @@ const Login = () => {
   const [users, SetUsers] = useState([]);
   const [role, setRole] = useState('');
   const navigate = useNavigate();
-  const { contextValue, updateContextValue } = useContext(MyContext);
+  const { updateContextValue } = useContext(MyContext);
 
   const handleSignin = async (e) => {
     e.preventDefault();
@@ -41,20 +43,26 @@ const Login = () => {
       localStorage.setItem('token', token);
 
       if (token) {
-        
-        const decodedToken = jwtDecode(token);
-        const userRole = decodedToken.role;
-        console.log(userRole);
-        updateContextValue(decodedToken.id);
-        setRole(userRole);
+      const decodedToken = jwtDecode(token);
+      const userRole = decodedToken.role;
+      console.log(userRole);
+      const encryptedUserData = encryptData({
+      id: decodedToken.id,
+      role: userRole,
+      });
+      localStorage.setItem('contextData', encryptedUserData);
 
-        if (userRole === 'ADMIN') {
+      updateContextValue(decodedToken.id, userRole);
+      console.log(updateContextValue);
+      setRole(userRole);
+
+        if (userRole === 'ROLE_ADMIN') {
           navigate('/admin')
-        } else if(userRole === 'USER') {
+        } else if(userRole === 'ROLE_CONTENT_CREATOR') {
           navigate('/contentcreator')
         }
         else {
-
+        
         }
       }
   
@@ -64,19 +72,19 @@ const Login = () => {
   };
   
 
-  useEffect (() => {
-    if(localStorage.getItem('userId') != null){
-      if(localStorage.getItem('userType') == "Creator"){
-        navigate('/contentcreator')
-      } else {
-        navigate('/dashboard')
-      }
-    }
-  })
+  // useEffect (() => {
+  //   if(localStorage.getItem('userId') != null){
+  //     if(localStorage.getItem('userType') == "Creator"){
+  //       navigate('/contentcreator')
+  //     } else {
+  //       navigate('/dashboard')
+  //     }
+  //   }
+  // })
  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-800">
-      <div className="max-w-md w-full space-y-8">
+      <div className="login max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
             Sign in to your account
