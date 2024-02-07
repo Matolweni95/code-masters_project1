@@ -30,7 +30,6 @@ import Aboutupdate from './components/Js/AboutUpdate';
 import Galleries from './components/Js/Galleries';
 export const MyContext = createContext({});
 
-export const MyContext = createContext({});
 
 const App = () => {
   const { contextValue, updateContextValue } = useContext(MyContext);
