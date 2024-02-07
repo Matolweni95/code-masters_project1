@@ -1,10 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+
+
 import { Link } from "react-router-dom";
 import db from "../Config/Firebase-config";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import "../css/stories.css";
 import "../css/BlogStyle.css";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 
 function Stories() {
   const [stories, setStories] = useState([]);
@@ -14,42 +17,25 @@ function Stories() {
   const framesPerPage = 6; 
 
 
-  useEffect(() => {
-    const fetchStories = async () => {
-      try {
-        const storiesCollection = collection(db, "stories");
-        const querySnapshot = await getDocs(storiesCollection);
-        const storiesData = [];
+  const fetchStories = async () => {
 
-        querySnapshot.forEach(async (doc) => {
-          const data = doc.data();
-          const imageUrl = await getImageUrl(data.picture);
-          storiesData.push({ id: doc.id, ...data, pictureUrl: imageUrl });
-        });
 
-        setStories(storiesData);
-      } catch (error) {
-        console.error("Error fetching stories: ", error);
-      }
-    };
+    const result =await axios.get("http://localhost:8080/api/v1/posts/posts");
+    setStories(result.data);
+    console.log(result.data);
+   
 
-    fetchStories();
-  }, []);
 
-  const getImageUrl = async (storagePath) => {
-    try {
-      const storage = getStorage();
-      const storageRef = ref(storage, storagePath);
+};
+useEffect(() => {
 
-      const imageUrl = await getDownloadURL(storage.snapshot.storageRef);
-      console.log(imageUrl);
+  fetchStories();
+}, []);
 
-      return imageUrl;
-    } catch (error) {
-      console.error("Error fetching image URL: ", error);
-      return "";
-    }
-  };
+
+
+
+  
 
   const handleDelete = async (storyId) => {
     try {
@@ -95,10 +81,11 @@ function Stories() {
             <div className="div">
               <img className="rectangle" src={story.picture} alt="Image" />
               <p className="text-wrapper">{story.title}</p>
-              <div className="line"></div>
+             
             </div>
+            <div className="line mb-3"></div>
             <p className="p">{story.body}</p>
-            <div className="div-2">
+            <div className="div-2 pb-4">
               <div className="div-wrapper">
                 <Link
                   to={`/dashboard/edit/${story.id}`}

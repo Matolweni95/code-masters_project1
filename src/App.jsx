@@ -26,7 +26,9 @@ import Profile from './components/Js/Profile';
 import ResetComponent from './components/Js/ResetComponent';
 import { encryptData, decryptData } from './components/Js/CyptoUtils';
 import Page from './components/Js/error';
-
+import Aboutupdate from './components/Js/AboutUpdate';
+import Galleries from './components/Js/Galleries';
+export const MyContext = createContext({});
 
 export const MyContext = createContext({});
 
@@ -37,6 +39,7 @@ const App = () => {
   const userRole = initialContextData.role;
 
   return (
+
     <MyContext.Provider value={{ contextValue, updateContextValue }}>
       <BrowserRouter>
         <Routes>
@@ -124,6 +127,7 @@ const App = () => {
           )}
 
         <Route path="*" element={<Page />} />
+
 
         </Routes>
       </BrowserRouter>
