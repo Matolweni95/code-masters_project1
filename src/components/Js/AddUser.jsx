@@ -158,7 +158,7 @@ const AddUser = () => {
                   Select Designation
                 </option>
                 <option value="ADMIN">ADMIN</option>
-                <option value="USER">USER</option>
+                <option value="CONTENT_CREATOR">CONTENT_CREATOR</option>
               </select>
             </div>
 
