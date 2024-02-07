@@ -61,9 +61,16 @@ function Galleries() {
     }
   };
 
+  const galleryData = {
+    caption: data.caption,
+    description: data.description,
+    event: data.event,
+    
+  };
+
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/v1/gallery/delete/${id}`, { headers, userId });
+      await axios.delete(`http://localhost:8080/api/v1/gallery/delete/${id}`);
       setGalleryItems((prevItems) => prevItems.filter((item) => item.id !== id));
     } catch (error) {
       console.error("Error deleting gallery item: ", error);
@@ -118,11 +125,11 @@ function Galleries() {
         };
   
         if (editing && editId) {
-          await axios.put(`http://localhost:8080/api/v1/gallery/update/${editId}`, { ...galleryData,imageUrl, userId }, { headers, userId });
+          await axios.put(`http://localhost:8080/api/v1/gallery/update/${editId}`, { ...galleryData,imageUrl,user_id:userId });
           setIsModalOpen(false);
   
         } else {
-          await axios.post(`http://localhost:8080/api/v1/gallery/save/${userId}`, { ...galleryData,imageUrl, userId }, { headers, userId });
+          await axios.post(`http://localhost:8080/api/v1/gallery/save/${userId}`, { ...galleryData,imageUrl,user_id:userId });
           setIsModalOpen(false);
         }
   
